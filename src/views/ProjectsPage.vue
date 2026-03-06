@@ -179,7 +179,7 @@ onUnmounted(() => {
   margin-top: 0rem;
   width: var(--main-window-width);
   display: inline-flex;
-  cursor: url("/img/cursor.svg"), auto;
+  cursor: url("/Practice_Portfolio_vue_js/img/cursor.svg"), auto;
   flex-wrap: wrap;
   justify-content: flex-start;
 }
@@ -215,7 +215,7 @@ onUnmounted(() => {
   overflow: scroll;
   width: 70rem;
   height: auto;
-  cursor: url("/img/MouseScrool.png"), auto;
+  cursor: url("/Practice_Portfolio_vue_js/img/MouseScrool.png"), auto;
 }
 
 .projects-screen-inner {

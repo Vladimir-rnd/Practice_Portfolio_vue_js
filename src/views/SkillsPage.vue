@@ -28,6 +28,7 @@
 <style scoped>
 .dashboard-desktop-child {
   position: relative;
+  z-index: 15;              /* ← ДОБАВИТЬ ЭТУ СТРОКУ */
   margin-left: var(--text-window-left);
   margin-top: 2rem;
   width: calc(100vw - var(--sidebar-width) - var(--text-window-left));

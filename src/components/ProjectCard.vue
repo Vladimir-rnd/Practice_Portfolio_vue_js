@@ -1,12 +1,14 @@
 <template>
   <div class="project" @click="$emit('select')">
     <span class="project-expl">{{ title }}</span>
-    <img class="thumbs-icon" :alt="title" :src="image">
+    <img class="thumbs-icon" :alt="title" :src="imageSrc">
   </div>
 </template>
 
 <script setup>
-defineProps({
+import { computed } from 'vue'
+
+const props = defineProps({
   title: {
     type: String,
     required: true
@@ -18,6 +20,11 @@ defineProps({
 })
 
 defineEmits(['select'])
+
+const imageSrc = computed(() => {
+  const path = props.image.startsWith('/') ? props.image.slice(1) : props.image
+  return import.meta.env.BASE_URL + path
+})
 </script>
 
 <style scoped>
