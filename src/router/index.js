@@ -12,7 +12,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory('/Practice_Portfolio_Vue_js/'),
   routes
 })
 
