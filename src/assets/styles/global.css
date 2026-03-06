@@ -2,10 +2,17 @@ html {
   font-size: 62.5%;
 }
 
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   box-sizing: border-box;
   line-height: normal;
+  overflow-x: hidden;
+  max-width: 100vw;
 
   --main-font: 'Oswald', sans-serif;
   --body-font: 'Roboto', sans-serif;
@@ -22,7 +29,7 @@ body {
   --template-font-size: 10.5rem;
 
   --screen-height: 108rem;
-  --screen-width: 198rem;
+  --screen-width: 100vw;
   --sidebar-width: calc(var(--screen-width) * 0.177);
   --marker-height: 3.5rem;
   --logo-code-size: 12rem;

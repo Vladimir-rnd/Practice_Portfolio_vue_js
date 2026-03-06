@@ -58,7 +58,10 @@ provide('toggleMenu', toggleMenu)
   position: absolute;
   width: 100%;
   height: 100%;
-  background: url("/img/backgd.jpg");
+  background: url("/Practice_Portfolio_vue_js/img/backgd.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   opacity: 0.15;
 }
 </style>
