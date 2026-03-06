@@ -12,7 +12,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory('/Practice_Portfolio_Vue_js/'),
+  history: createWebHistory('/Practice_Portfolio_vue_js/'),
   routes
 })
 

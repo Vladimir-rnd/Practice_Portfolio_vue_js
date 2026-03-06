@@ -51,7 +51,7 @@ provide('toggleMenu', toggleMenu)
   height: 100%;
   opacity: 0.95;
   overflow: hidden;
-  background-color: var(--darkblue);
+  background: url("/Practice_Portfolio_vue_js/img/backgd.jpg");
 }
 
 .background {
