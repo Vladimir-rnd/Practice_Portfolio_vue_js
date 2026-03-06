@@ -1,9 +1,5 @@
 html {
   font-size: 62.5%;
-}
-
-html {
-  font-size: 62.5%;
   overflow-x: hidden;
 }
 
@@ -12,7 +8,6 @@ body {
   box-sizing: border-box;
   line-height: normal;
   overflow-x: hidden;
-  max-width: 100vw;
 
   --main-font: 'Oswald', sans-serif;
   --body-font: 'Roboto', sans-serif;
@@ -28,14 +23,14 @@ body {
   --big-font-size: 5rem;
   --template-font-size: 10.5rem;
 
-  --screen-height: 108rem;
+  --screen-height: auto;
   --screen-width: 100vw;
-  --sidebar-width: calc(var(--screen-width) * 0.177);
+  --sidebar-width: 17.7vw;
   --marker-height: 3.5rem;
   --logo-code-size: 12rem;
   --main-window-top: 13rem;
   --main-window-left: 18rem;
-  --main-window-width: calc(var(--screen-width) - var(--sidebar-width) - var(--main-window-left) - 2rem);
+  --main-window-width: calc(100vw - var(--sidebar-width) - var(--main-window-left) - 2rem);
   --text-window-left: 15rem;
 
   --main-color: #FFF;

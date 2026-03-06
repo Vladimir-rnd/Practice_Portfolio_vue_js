@@ -27,17 +27,18 @@
 
 <style scoped>
 .dashboard-desktop-child {
-  position: absolute;
+  position: relative;
   margin-left: var(--text-window-left);
-  margin-top: -4rem;
-  width: 71%;
-  height: 100%;
+  margin-top: 2rem;
+  width: calc(100vw - var(--sidebar-width) - var(--text-window-left));
+  min-height: 80vh;
   border-radius: 4rem 4rem 0 0;
   background-color: rgba(255, 255, 255, 0.85);
   display: inline-flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: flex-start;
+  padding-bottom: 5rem;
 }
 
 .text-block {

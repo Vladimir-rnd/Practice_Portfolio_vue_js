@@ -74,14 +74,15 @@ const form = reactive({
 
 <style scoped>
 .main-window {
-  position: absolute;
-  top: var(--main-window-top);
-  left: calc(var(--sidebar-width) + var(--main-window-left));
+  position: relative;
+  margin-top: var(--main-window-top);
+  margin-left: calc(var(--sidebar-width) + var(--main-window-left));
   width: var(--main-window-width);
   height: auto;
   display: inline-flex;
   flex-direction: row;
   align-items: start;
+  padding-bottom: 5rem;
 }
 
 .content {
