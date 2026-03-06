@@ -67,23 +67,3 @@ provide('toggleMenu', toggleMenu)
   opacity: 0.25;
 }
 </style>
-
-.dashboard-desktop {
-  width: 100%;
-  height: 100%;
-  opacity: 0.95;
-  overflow: hidden;
-  background: url("/Practice_Portfolio_vue_js/img/backgd.jpg");
-}
-
-.background {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: url("/Practice_Portfolio_vue_js/img/backgd.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0.15;
-}
-</style>
