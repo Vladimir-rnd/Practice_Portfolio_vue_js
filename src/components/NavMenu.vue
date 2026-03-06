@@ -3,7 +3,7 @@
     <router-link
       to="/"
       class="menu-item"
-      :class="{ 'active-menu-item': $route.path === '/' }"
+      :class="{ 'active-menu-item': route.path === '/' }"
       @click="closeMenu"
     >
       Обо мне
@@ -11,7 +11,7 @@
     <router-link
       to="/projects"
       class="menu-item"
-      :class="{ 'active-menu-item': $route.path === '/projects' }"
+      :class="{ 'active-menu-item': route.path === '/projects' }"
       @click="closeMenu"
     >
       Проекты
@@ -19,7 +19,7 @@
     <router-link
       to="/skills"
       class="menu-item"
-      :class="{ 'active-menu-item': $route.path === '/skills' }"
+      :class="{ 'active-menu-item': route.path === '/skills' }"
       @click="closeMenu"
     >
       Навыки
@@ -27,7 +27,7 @@
     <router-link
       to="/contacts"
       class="menu-item"
-      :class="{ 'active-menu-item': $route.path === '/contacts' }"
+      :class="{ 'active-menu-item': route.path === '/contacts' }"
       @click="closeMenu"
     >
       Контакты
@@ -54,9 +54,9 @@ function closeMenu() {
 <style scoped>
 .menu {
   position: relative;
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
-  width: calc(var(--sidebar-width) - 5rem);
+  width: 100%;
   height: auto;
   align-items: center;
   font-size: var(--menu-font-size);
@@ -81,12 +81,6 @@ function closeMenu() {
   opacity: 0.25;
   padding-top: 5rem;
   font-size: calc(var(--menu-font-size) / 1.4);
-}
-
-@media (max-width: 991px) {
-  .menu {
-    width: calc(var(--sidebar-width));
-  }
 }
 
 @media (max-width: 767px) {
