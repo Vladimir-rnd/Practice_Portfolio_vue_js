@@ -1,0 +1,230 @@
+<template>
+  <div class="main-window">
+    <div class="content">
+      <div class="left-side">
+        <div class="details">
+          <i class="fa fa-map-marker-alt"></i>
+          <div class="topic">Адрес</div>
+          <div class="text-adr">WORLD WIDE WEB</div>
+          <div class="text-adr">Freelance.ru</div>
+        </div>
+        <div class="details">
+          <i class="fa fa-phone-alt"></i>
+          <div class="topic">Телефон</div>
+          <div class="text-adr">+7-903-433-90-11</div>
+        </div>
+        <div class="details">
+          <i class="fa fa-whatsapp"></i>
+          <div class="topic">WhatsApp</div>
+          <div class="text-adr">+7-903-433-90-11</div>
+        </div>
+        <div class="details">
+          <i class="fa fa-telegram"></i>
+          <div class="topic">Telegram</div>
+          <div class="text-adr">@trionon_v</div>
+        </div>
+        <div class="details">
+          <i class="fa fa-vk"></i>
+          <div class="topic">Вконтакте</div>
+          <div class="text-adr">vk.com/id4226428</div>
+        </div>
+        <div class="details">
+          <i class="fa fa-envelope"></i>
+          <div class="topic">Email</div>
+          <div class="text-adr">shagy@mail.ru</div>
+        </div>
+      </div>
+
+      <div class="right-side">
+        <div class="header">Отправьте нам сообщение</div>
+        <p>
+          У вас обязательно есть какие-то вопросы или предложения по сотрудничеству -
+          заполните форму ниже
+        </p>
+        <form @submit.prevent>
+          <div class="input-box">
+            <input v-model="form.name" type="text" placeholder="Ваше имя">
+          </div>
+          <div class="input-box">
+            <input v-model="form.email" type="text" placeholder="Введите email">
+          </div>
+          <div class="input-box">
+            <input v-model="form.phone" type="text" placeholder="Введите телефон">
+          </div>
+          <div class="input-box message-box">
+            <textarea v-model="form.message" placeholder="Сообщение"></textarea>
+          </div>
+          <input class="button1" type="button" value="Отправить">
+        </form>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { reactive } from "vue"
+
+const form = reactive({
+  name: "",
+  email: "",
+  phone: "",
+  message: ""
+})
+</script>
+
+<style scoped>
+.main-window {
+  position: absolute;
+  top: var(--main-window-top);
+  left: calc(var(--sidebar-width) + var(--main-window-left));
+  width: var(--main-window-width);
+  height: auto;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: start;
+}
+
+.content {
+  width: 55%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5rem;
+  border-radius: 5px;
+  box-shadow: 0px 4px 30px 0px rgba(237, 240, 235, 0.45);
+}
+
+.left-side {
+  width: 30%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.left-side::before {
+  content: "";
+  position: absolute;
+  height: 70%;
+  width: 2px;
+  background: #afafb6;
+  right: 1px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.right-side {
+  width: 70%;
+  margin-left: 7rem;
+  margin-right: 7rem;
+}
+
+.details {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.details i {
+  font-size: var(--page-font-size);
+  color: var(--main-color);
+  margin-bottom: 10px;
+}
+
+.topic {
+  font-size: var(--expl-font-size);
+  font-weight: 500;
+  margin-bottom: 7px;
+}
+
+.text-adr {
+  font-size: var(--basement-font-size);
+  color: #afafb6;
+}
+
+.header {
+  font-size: var(--body-font-size);
+  font-weight: 600;
+  color: var(--main-color);
+  margin-bottom: 1rem;
+}
+
+.right-side p {
+  margin-bottom: 2rem;
+  font-size: var(--basement-font-size);
+}
+
+.input-box {
+  height: 50px;
+  margin-bottom: 20px;
+}
+
+.input-box input,
+.input-box textarea {
+  height: 100%;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  background: #f0f1f8;
+  padding: 0 20px;
+}
+
+.input-box textarea {
+  resize: none;
+  padding: 20px;
+  font-family: "Roboto", sans-serif;
+}
+
+.message-box {
+  min-height: 110px;
+}
+
+.button1 {
+  padding: 1rem 2rem;
+  margin-top: 4rem;
+  color: var(--main-color);
+  font-size: var(--expl-font-size);
+  background: var(--highligh-color);
+  outline: none;
+  border: none;
+  border-radius: 7px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.button1:hover {
+  background: var(--alt-color-1);
+}
+
+@media (max-width: 1399px) {
+  .left-side::before {
+    right: -2rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .content {
+    height: 100%;
+    flex-direction: column-reverse;
+  }
+  .left-side {
+    margin-top: 50px;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .details {
+    margin-right: 20px;
+  }
+  .details:last-child {
+    margin-right: 0;
+  }
+  .left-side::before {
+    display: none;
+  }
+  .right-side {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+</style>

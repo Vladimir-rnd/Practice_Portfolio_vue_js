@@ -1,0 +1,121 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  margin: 0;
+  box-sizing: border-box;
+  line-height: normal;
+
+  --main-font: 'Oswald', sans-serif;
+  --body-font: 'Roboto', sans-serif;
+  --alt-font: 'Montserrat', sans-serif;
+
+  --basement-font-size: 1.6rem;
+  --menu-font-size: 3rem;
+  --expl-font-size: 2rem;
+  --body-font-size: 3rem;
+  --page-font-size: 2.5rem;
+  --body-font-size2: 2.3rem;
+  --news-font-size: 3.5rem;
+  --big-font-size: 5rem;
+  --template-font-size: 10.5rem;
+
+  --screen-height: 108rem;
+  --screen-width: 198rem;
+  --sidebar-width: calc(var(--screen-width) * 0.177);
+  --marker-height: 3.5rem;
+  --logo-code-size: 12rem;
+  --main-window-top: 13rem;
+  --main-window-left: 18rem;
+  --main-window-width: calc(var(--screen-width) - var(--sidebar-width) - var(--main-window-left) - 2rem);
+  --text-window-left: 15rem;
+
+  --main-color: #FFF;
+  --highligh-color: #A276FF;
+  --alt-color-1: #decc95;
+  --control-color: #858585;
+  --darkblue: #0f185a;
+  --vdarkblue: #0b0b0d;
+
+  --thumbs-radius: 1.1rem;
+  --button-radius: 1.7rem;
+  --screen-ratio: 0.5625;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+@media (max-width: 1399px) {
+  body {
+    --screen-width: 140rem;
+    --screen-height: 150rem;
+    --body-font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 1199px) {
+  body {
+    --screen-width: 120rem;
+    --screen-height: 135rem;
+    --main-window-left: 5rem;
+    --main-window-top: 10rem;
+    --body-font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 991px) {
+  body {
+    --screen-width: 99.2rem;
+    --screen-height: 135rem;
+    --main-window-left: 3rem;
+    --main-window-top: 5rem;
+    --body-font-size: 2rem;
+    --logo-code-size: 10rem;
+    --template-font-size: 6.5rem;
+    --news-font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  body {
+    --screen-width: 76.8rem;
+    --screen-height: 165rem;
+    --logo-code-size: 8rem;
+    --body-font-size: 1.8rem;
+    --big-font-size: 4rem;
+    --template-font-size: 5.2rem;
+    --news-font-size: 3rem;
+  }
+}
+
+@media (max-width: 575px) {
+  body {
+    --screen-width: 57.6rem;
+    --screen-height: 180rem;
+    --body-font-size: 1.7rem;
+    --news-font-size: 2.5rem;
+    --logo-code-size: 7rem;
+    --menu-font-size: 2rem;
+  }
+}
+
+@media (max-width: 376px) {
+  body {
+    --screen-width: 37.5rem;
+    --sidebar-width: 0rem;
+    --big-font-size: 2rem;
+    --template-font-size: 4rem;
+    --main-window-top: 7rem;
+  }
+}
