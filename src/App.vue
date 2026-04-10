@@ -1,4 +1,5 @@
 <template>
+  <SocialBox v-if="route.path !== '/contacts'" />
   <div class="home">
     <div class="dashboard-desktop">
       <div class="background"></div>
@@ -10,7 +11,6 @@
         <NavMenu />
       </div>
 
-      <SocialBox />
       <router-view />
       <AppFooter />
     </div>

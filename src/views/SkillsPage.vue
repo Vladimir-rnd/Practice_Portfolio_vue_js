@@ -29,9 +29,9 @@
 .dashboard-desktop-child {
   position: relative;
   z-index: 15;          /* ← ДОБАВИТЬ ЭТУ СТРОКУ */
-  margin-left: var(--text-window-left);
+  margin-left: calc(var(--sidebar-width) + var(--text-window-left));
   margin-top: 2rem;
-  width: calc(100vw - var(--sidebar-width) - var(--text-window-left));
+  width: calc(100vw - var(--sidebar-width) - var(--text-window-left) - 2rem);
   min-height: 80vh;
   border-radius: 4rem 4rem 0 0;
   background-color: rgba(255, 255, 255, 0.85);
