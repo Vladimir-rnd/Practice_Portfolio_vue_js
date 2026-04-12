@@ -45,12 +45,15 @@ const imageSrc = computed(() => {
 
 .thumbs-icon {
   border-radius: var(--thumbs-radius);
-  border: 5px solid var(--main-color);
+  border: 2px solid rgba(255, 255, 255, 0.15);
   width: 25rem;
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
 }
 
-.thumbs-icon:hover {
-  border: 5px solid var(--alt-color-1);
+.project:hover .thumbs-icon {
+  border-color: var(--alt-color-1);
+  box-shadow: 0 0 20px rgba(222, 204, 149, 0.2);
+  transform: translateY(-2px);
 }
 
 @media (max-width: 1399px) {
