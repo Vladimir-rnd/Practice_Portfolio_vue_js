@@ -1,10 +1,12 @@
 html {
   font-size: 62.5%;
   overflow-x: hidden;
+  background-color: #0f185a;
 }
 
 body {
   margin: 0;
+  background-color: #0f185a;
   box-sizing: border-box;
   line-height: normal;
   overflow-x: hidden;

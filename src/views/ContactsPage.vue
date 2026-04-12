@@ -95,7 +95,6 @@ const contacts = [
 const messengers = [
   { type: 'whatsapp', label: 'WhatsApp',   svg: `${base}img/wp.svg`,     color: '#25d366' },
   { type: 'telegram', label: 'Telegram',   svg: `${base}img/telega.svg`, color: '#2aabee' },
-  { type: 'vk',       label: 'ВКонтакте',  svg: `${base}img/vk.svg`,    color: '#0077ff' },
 ]
 
 const form = reactive({ name: '', email: '', phone: '', message: '' })
@@ -143,7 +142,6 @@ function openMessenger(type) {
   const urls = {
     whatsapp: `https://wa.me/79034339011?text=${text}`,
     telegram: isMobile ? `tg://resolve?domain=trionon_v` : `https://t.me/trionon_v`,
-    vk: `https://vk.me/id4226428`,
   }
   window.open(urls[type], '_blank')
 }
