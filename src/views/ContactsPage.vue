@@ -57,7 +57,7 @@
         </div>
 
         <!-- Мессенджеры -->
-        <div class="glass-panel messenger-panel" style="--panel-delay: 0.3s">
+        <div class="glass-panel messenger-panel hide-mobile" style="--panel-delay: 0.3s">
           <h2 class="section-title">Написать в мессенджер</h2>
           <div class="field">
             <label for="c-messenger">Сообщение</label>
@@ -523,11 +523,8 @@ function openMessenger(type) {
   .section-title {
     font-size: 2.2rem;
   }
-  .messenger-grid {
-    flex-direction: column;
-  }
-  .msg-pill {
-    justify-content: center;
+  .hide-mobile {
+    display: none;
   }
 }
 
