@@ -26,7 +26,7 @@
   line-height: 1;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 768px) {
   .footer {
     position: fixed;
     bottom: 0;

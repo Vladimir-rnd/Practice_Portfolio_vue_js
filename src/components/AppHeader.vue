@@ -1,7 +1,7 @@
 <template>
   <div class="heading">
     <BurgerMenu :isOpen="menuOpen" @toggle="toggleMenu" />
-    <LogoBlock />
+    <LogoBlock class="logo-desktop" />
   </div>
 </template>
 
@@ -19,15 +19,19 @@ const toggleMenu = inject('toggleMenu')
   margin: 0;
 }
 
-@media (max-width: 376px) {
+@media (max-width: 768px) {
   .heading {
     position: fixed;
-    width: inherit;
-    margin-top: 1rem;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.8rem 1rem;
     display: flex;
-    align-items: stretch;
-    justify-content: space-between;
-    z-index: 1;
+    align-items: center;
+    z-index: 35;
+  }
+  .logo-desktop {
+    display: none;
   }
 }
 </style>

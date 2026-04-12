@@ -78,7 +78,7 @@
   .social-icon { width: 14px; height: 14px; }
 }
 
-@media (max-width: 376px) {
+@media (max-width: 768px) {
   .social-box { display: none; }
 }
 </style>

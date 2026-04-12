@@ -277,7 +277,7 @@ onUnmounted(() => {
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .projects-expl {
     margin-right: 1rem;
   }
@@ -318,7 +318,7 @@ onUnmounted(() => {
   }
 }
 
-@media (max-width: 376px) {
+@media (max-width: 768px) {
   .thumbs {
     display: none;
   }

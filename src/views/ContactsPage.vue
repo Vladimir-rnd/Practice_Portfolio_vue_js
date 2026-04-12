@@ -510,7 +510,7 @@ function openMessenger(type) {
 }
 
 /* Маленький планшет / большой телефон */
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .main-window {
     padding: 2rem;
   }
@@ -528,14 +528,14 @@ function openMessenger(type) {
   }
 }
 
-/* Телефон (sidebar скрыт через глобальные стили) */
-@media (max-width: 376px) {
+/* Телефон */
+@media (max-width: 768px) {
   .main-window {
     position: relative;
     left: auto;
     width: 100%;
     height: auto;
-    padding: 1.5rem;
+    padding: 7rem 1.5rem 7rem;
   }
   .glass-panel {
     padding: 1.5rem;

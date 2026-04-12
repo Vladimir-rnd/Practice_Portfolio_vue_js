@@ -1,5 +1,9 @@
 <template>
   <nav class="menu" :class="{ active: menuOpen }" aria-label="Навигация по страницам">
+    <div class="menu-logo">
+      <img src="/img/Logo.svg" alt="Logo" class="menu-logo-img">
+      <span class="menu-logo-text">CODE WEB</span>
+    </div>
     <router-link
       v-for="item in menuItems" :key="item.to"
       :to="item.to"
@@ -10,6 +14,7 @@
       <span class="menu-marker"></span>
       <span class="menu-text">{{ item.label }}</span>
     </router-link>
+    <div class="menu-copyright">©2023 @trionon</div>
   </nav>
   <div class="copyright">©2023 @trionon</div>
 </template>
@@ -111,35 +116,78 @@ function closeMenu() {
   }
 }
 
-@media (max-width: 767px) {
-  .copyright {
-    text-align: center;
-  }
+/* === Мобильное меню === */
+.menu-logo {
+  display: none;
 }
 
-@media (max-width: 376px) {
-  .menu {
-    position: absolute;
-    transition-property: width, visibility;
-    transition-duration: 0.2s, 0.2s;
-    transition-timing-function: ease-in;
-    width: 0%;
-    visibility: hidden;
-    display: flex;
-    flex-direction: column;
-    padding-left: 1px;
-    background-color: var(--darkblue);
-    z-index: 1;
-    top: 6rem;
-    height: inherit;
-  }
-  .menu.active {
-    position: fixed;
-    width: 60%;
-    visibility: visible;
-  }
+.menu-copyright {
+  display: none;
+}
+
+@media (max-width: 768px) {
   .copyright {
     display: none;
+  }
+  .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(15, 24, 90, 0.97);
+    backdrop-filter: blur(12px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    z-index: 30;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+  }
+  .menu.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  .menu-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 3rem;
+  }
+  .menu-logo-img {
+    width: 6rem;
+  }
+  .menu-logo-text {
+    font-family: var(--main-font);
+    font-size: 1.6rem;
+    color: #56D4FD;
+    letter-spacing: 0.15em;
+  }
+  .menu-item {
+    font-size: 3.2rem;
+    margin-top: 1rem;
+    padding: 0.8rem 2rem;
+    border-radius: 1rem;
+    transition: background 0.3s, color 0.3s;
+  }
+  .menu-item:hover,
+  .menu-item:active {
+    background: rgba(162, 118, 255, 0.15);
+  }
+  .active-menu-item {
+    background: rgba(162, 118, 255, 0.1);
+  }
+  .menu-copyright {
+    display: block;
+    margin-top: 3rem;
+    color: var(--main-color);
+    opacity: 0.3;
+    font-size: 1.4rem;
+    font-family: var(--main-font);
   }
 }
 </style>

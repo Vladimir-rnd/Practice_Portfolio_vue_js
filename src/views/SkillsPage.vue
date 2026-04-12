@@ -125,7 +125,7 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .starsky {
     margin-left: 2rem;
     height: 27rem;

@@ -28,10 +28,11 @@ defineEmits(["toggle"])
 <style scoped>
 .burger { display: none; }
 
-@media (max-width: 376px) {
+@media (max-width: 768px) {
   .burger {
     display: block; margin-top: 1.5rem; margin-left: 1.5rem;
     width: 3rem; height: 3rem; cursor: pointer;
+    position: relative; z-index: 40;
   }
   .burger .line {
     display: block; height: 0.5rem; margin-bottom: 0.5rem;

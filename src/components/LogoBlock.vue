@@ -53,14 +53,18 @@
 
 @media (max-width: 991px) {
   .yourlogo {
-    margin-left: 2rem;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
   }
   .logo {
-    width: 80%;
+    width: 60%;
+  }
+  .logo-code {
+    width: calc(var(--logo-code-size) * 0.7);
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .logo-code {
     margin-top: 1rem;
   }
@@ -72,18 +76,22 @@
   }
 }
 
-@media (max-width: 376px) {
+@media (max-width: 768px) {
   .yourlogo {
     margin: 0;
-    margin-top: 1rem;
-    margin-right: 2.5rem;
+    margin-top: 0.8rem;
+    margin-right: 1.5rem;
     flex-direction: row;
-    align-items: self-start;
-    width: 12rem;
+    align-items: center;
+    width: auto;
+    gap: 0.8rem;
   }
   .logo {
-    width: 25%;
-    margin-right: 1rem;
+    width: 3.5rem;
+  }
+  .logo-code {
+    width: 8rem;
+    margin-top: 0;
   }
 }
 </style>

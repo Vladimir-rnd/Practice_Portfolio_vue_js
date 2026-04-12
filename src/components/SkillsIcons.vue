@@ -69,7 +69,7 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .skills {
     margin-left: 3rem;
   }
@@ -89,7 +89,7 @@
   }
 }
 
-@media (max-width: 376px) {
+@media (max-width: 768px) {
   .skills {
     margin-left: 0rem;
     margin-top: 1rem;

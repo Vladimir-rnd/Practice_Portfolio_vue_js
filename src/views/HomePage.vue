@@ -155,13 +155,13 @@ import SkillsIcons from '@/components/SkillsIcons.vue'
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .simple-starter-templ {
     width: 90%;
   }
 }
 
-@media (max-width: 376px) {
+@media (max-width: 768px) {
   .thumbs-1p {
     margin-top: 3rem;
     margin-left: 2rem;

@@ -98,7 +98,7 @@ provide('toggleMenu', toggleMenu)
   z-index: -1;
 }
 
-@media (max-width: 376px) {
+@media (max-width: 768px) {
   .sidebar-fixed {
     position: relative;
     width: 100%;

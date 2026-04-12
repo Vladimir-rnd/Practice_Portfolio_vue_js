@@ -86,10 +86,12 @@ a {
     --logo-code-size: 10rem;
     --template-font-size: 6.5rem;
     --news-font-size: 3.5rem;
+    --menu-font-size: 2.2rem;
+    --sidebar-width: 14vw;
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   body {
     --screen-width: 76.8rem;
     --screen-height: 165rem;
@@ -112,7 +114,7 @@ a {
   }
 }
 
-@media (max-width: 376px) {
+@media (max-width: 768px) {
   body {
     --screen-width: 37.5rem;
     --sidebar-width: 0rem;
