@@ -9,7 +9,7 @@
     <a class="social-link" href="https://vk.me/id4226428" target="_blank" title="ВКонтакте">
       <img class="social-icon" src="/img/vk.svg" alt="VK">
     </a>
-    <a class="social-link social-link-max" href="https://web.max.ru" target="_blank" title="MAX">
+    <a class="social-link social-link-max" href="https://max.ru" target="_blank" title="MAX">
       <img class="social-icon" src="/img/max.svg" alt="MAX">
     </a>
   </div>

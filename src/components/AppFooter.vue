@@ -3,7 +3,7 @@
     <a href="https://wa.me/79034339011" target="_blank"><img class="social-icon" src="/img/wp.svg" alt="WhatsApp"></a>
     <a href="https://t.me/trionon_v" target="_blank"><img class="social-icon" src="/img/telega.svg" alt="Telegram"></a>
     <a href="https://vk.me/id4226428" target="_blank"><img class="social-icon" src="/img/vk.svg" alt="VK"></a>
-    <a href="https://web.max.ru" target="_blank"><img class="social-icon" src="/img/max.svg" alt="MAX"></a>
+    <a href="https://max.ru" target="_blank"><img class="social-icon" src="/img/max.svg" alt="MAX"></a>
   </div>
 </template>
 
