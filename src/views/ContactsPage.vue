@@ -88,7 +88,7 @@ const contacts = [
   { name: 'WhatsApp',   value: '+7-903-433-90-11', svg: `${base}img/wp.svg`,     href: 'https://wa.me/79034339011',    color: '#25d366', external: true },
   { name: 'Telegram',   value: '@trionon_v',       svg: `${base}img/telega.svg`, href: 'https://t.me/trionon_v',       color: '#2aabee', external: true },
   { name: 'ВКонтакте',  value: 'vk.com/id4226428', svg: `${base}img/vk.svg`,    href: 'https://vk.com/id4226428',     color: '#0077ff', external: true },
-  { name: 'MAX',        value: '+7-903-433-90-11', svg: `${base}img/max.svg`,    href: isMobile ? 'max://' : 'https://web.max.ru', color: '#a06cf9', external: true },
+  { name: 'MAX',        value: '+7-903-433-90-11', svg: `${base}img/max.svg`,    href: 'https://max.ru',  color: '#a06cf9', external: true },
   { name: 'Email',      value: 'shagy@mail.ru',    svg: null,                     href: 'mailto:shagy@mail.ru',         color: '#decc95', external: false },
 ]
 
