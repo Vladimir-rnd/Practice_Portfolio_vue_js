@@ -4,8 +4,8 @@
     <div class="content">
       <div class="right-side">
 
-        <!-- Контактные карточки — горизонтальная лента -->
-        <div class="contacts-strip" style="--panel-delay: 0.05s">
+        <!-- Контактные карточки — горизонтальная лента (десктоп) -->
+        <div class="contacts-strip hide-mobile" style="--panel-delay: 0.05s">
           <a class="contact-card"
              v-for="(c, i) in contacts" :key="c.name"
              :href="c.href" :target="c.external ? '_blank' : undefined"

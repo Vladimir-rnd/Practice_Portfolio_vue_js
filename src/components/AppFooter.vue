@@ -4,6 +4,7 @@
     <a href="https://t.me/trionon_v" target="_blank"><img class="social-icon" src="/img/telega.svg" alt="Telegram"></a>
     <a href="https://vk.me/id4226428" target="_blank"><img class="social-icon" src="/img/vk.svg" alt="VK"></a>
     <a href="https://max.ru" target="_blank"><img class="social-icon" src="/img/max.svg" alt="MAX"></a>
+    <a href="mailto:shagy@mail.ru"><span class="email-icon">✉</span></a>
   </div>
 </template>
 
@@ -18,6 +19,11 @@
 .social-icon {
   width: 28px;
   height: 28px;
+}
+
+.email-icon {
+  font-size: 24px;
+  line-height: 1;
 }
 
 @media (max-width: 576px) {
