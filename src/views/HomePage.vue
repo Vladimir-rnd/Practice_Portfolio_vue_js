@@ -104,11 +104,14 @@ import SkillsIcons from '@/components/SkillsIcons.vue'
 
 .thumbs-icon-1p {
   border-radius: var(--thumbs-radius);
-  border: 5px solid var(--main-color);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
 }
 
 .thumbs-icon-1p:hover {
-  border: 5px solid var(--alt-color-1);
+  border-color: var(--alt-color-1);
+  box-shadow: 0 0 20px rgba(222, 204, 149, 0.2);
+  transform: translateY(-2px);
 }
 
 .th-project {
@@ -132,6 +135,11 @@ import SkillsIcons from '@/components/SkillsIcons.vue'
   font-family: var(--body-font);
   font-size: var(--basement-font-size);
   letter-spacing: 0.2em;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.6rem;
+  padding: 3rem;
+  backdrop-filter: blur(12px);
 }
 
 @media (max-width: 1199px) {
@@ -162,6 +170,11 @@ import SkillsIcons from '@/components/SkillsIcons.vue'
 }
 
 @media (max-width: 768px) {
+  .main-window {
+    padding: 7rem 1.5rem 7rem;
+    margin: 0;
+    width: 100%;
+  }
   .thumbs-1p {
     margin-top: 3rem;
     margin-left: 2rem;
