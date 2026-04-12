@@ -1,27 +1,26 @@
 <template>
   <div class="main-window">
-    <!-- Левая колонка: контактные карточки -->
-    <div class="left-side">
-      <div class="left-title">Связаться</div>
-
-      <a class="contact-card"
-         v-for="(c, i) in contacts" :key="c.name"
-         :href="c.href" :target="c.external ? '_blank' : undefined"
-         :style="{ '--card-glow': c.color, '--card-delay': i * 0.1 + 's' }">
-        <div class="card-icon">
-          <img v-if="c.svg" :src="c.svg" class="card-svg" :alt="c.name">
-          <span v-else class="card-emoji">✉</span>
-        </div>
-        <div class="card-info">
-          <div class="card-name">{{ c.name }}</div>
-          <div class="card-value">{{ c.value }}</div>
-        </div>
-      </a>
-    </div>
-
-    <!-- Правая часть: формы -->
+    <!-- Единый контейнер -->
     <div class="content">
       <div class="right-side">
+
+        <!-- Контактные карточки — горизонтальная лента -->
+        <div class="contacts-strip" style="--panel-delay: 0.05s">
+          <a class="contact-card"
+             v-for="(c, i) in contacts" :key="c.name"
+             :href="c.href" :target="c.external ? '_blank' : undefined"
+             :style="{ '--card-glow': c.color, '--card-delay': i * 0.08 + 's' }">
+            <div class="card-icon">
+              <img v-if="c.svg" :src="c.svg" class="card-svg" :alt="c.name">
+              <span v-else class="card-emoji">✉</span>
+            </div>
+            <div class="card-info">
+              <div class="card-name">{{ c.name }}</div>
+              <div class="card-value">{{ c.value }}</div>
+            </div>
+          </a>
+        </div>
+
         <!-- Email форма -->
         <div class="glass-panel form-panel" style="--panel-delay: 0.15s">
           <h2 class="section-title">Написать на почту</h2>
@@ -29,21 +28,21 @@
           <form @submit.prevent="submitEmail" @focusin="status = ''">
             <div class="field-row">
               <div class="field" style="flex: 1.2">
-                <label>Имя</label>
-                <input v-model="form.name" name="name" type="text" required>
+                <label for="c-name">Имя</label>
+                <input id="c-name" v-model="form.name" name="name" type="text" autocomplete="name" required>
               </div>
               <div class="field" style="flex: 1.5">
-                <label>Email</label>
-                <input v-model="form.email" name="email" type="email" required>
+                <label for="c-email">Email</label>
+                <input id="c-email" v-model="form.email" name="email" type="email" autocomplete="email" required>
               </div>
               <div class="field" style="flex: 1">
-                <label>Телефон</label>
-                <input v-model="form.phone" name="phone" type="text">
+                <label for="c-phone">Телефон</label>
+                <input id="c-phone" v-model="form.phone" name="phone" type="tel" autocomplete="tel">
               </div>
             </div>
             <div class="field">
-              <label>Сообщение</label>
-              <textarea v-model="form.message" name="message" rows="4" required></textarea>
+              <label for="c-message">Сообщение</label>
+              <textarea id="c-message" v-model="form.message" name="message" rows="4" required></textarea>
             </div>
             <div class="form-footer">
               <button class="send-btn" type="submit" :disabled="sending">
@@ -61,7 +60,8 @@
         <div class="glass-panel messenger-panel" style="--panel-delay: 0.3s">
           <h2 class="section-title">Написать в мессенджер</h2>
           <div class="field">
-            <textarea v-model="messengerText" rows="3" placeholder="Ваше сообщение..."></textarea>
+            <label for="c-messenger">Сообщение</label>
+            <textarea id="c-messenger" v-model="messengerText" rows="3" placeholder="Ваше сообщение..."></textarea>
           </div>
           <div class="messenger-grid">
             <button v-for="m in messengers" :key="m.type"
@@ -95,7 +95,6 @@ const messengers = [
   { type: 'whatsapp', label: 'WhatsApp',   svg: `${base}img/wp.svg`,     color: '#25d366' },
   { type: 'telegram', label: 'Telegram',   svg: `${base}img/telega.svg`, color: '#2aabee' },
   { type: 'vk',       label: 'ВКонтакте',  svg: `${base}img/vk.svg`,    color: '#0077ff' },
-  { type: 'max',      label: 'MAX',        svg: `${base}img/max.svg`,   color: '#a06cf9' },
 ]
 
 const form = reactive({ name: '', email: '', phone: '', message: '' })
@@ -138,13 +137,14 @@ async function submitEmail() {
   buttonText.value = 'Отправить'
 }
 
+const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
+
 function openMessenger(type) {
   const text = encodeURIComponent(messengerText.value || 'Здравствуйте!')
   const urls = {
     whatsapp: `https://wa.me/79034339011?text=${text}`,
-    telegram: `https://t.me/trionon_v`,
+    telegram: isMobile ? `tg://resolve?domain=trionon_v` : `https://t.me/trionon_v`,
     vk: `https://vk.me/id4226428`,
-    max: `https://web.max.ru`
   }
   window.open(urls[type], '_blank')
 }
@@ -158,56 +158,32 @@ function openMessenger(type) {
   left: var(--sidebar-width);
   width: calc(100vw - var(--sidebar-width));
   height: 100vh;
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
+  overflow-y: auto;
   font-family: var(--body-font);
+  padding: 3rem var(--main-window-left) 4rem var(--main-window-left);
 }
 
-/* === Left: Contact Cards === */
-.left-side {
-  width: 24rem;
-  padding: 3rem 2rem;
+.main-window::-webkit-scrollbar { width: 0; }
+
+/* === Contact Cards Strip === */
+.contacts-strip {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  flex-shrink: 0;
-  gap: 0.8rem;
-  position: relative;
-}
-
-.left-side::after {
-  content: "";
-  position: absolute;
-  height: 60%;
-  width: 1px;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  background: linear-gradient(transparent, rgba(162, 118, 255, 0.4), transparent);
-}
-
-.left-title {
-  font-family: var(--main-font);
-  font-size: 2.4rem;
-  font-weight: 600;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.4);
-  margin-bottom: 1rem;
-  animation: fadeSlideIn 0.6s ease both;
+  gap: 1rem;
+  flex-wrap: wrap;
+  animation: fadeScaleIn 0.5s ease both;
+  animation-delay: var(--panel-delay);
 }
 
 .contact-card {
   display: flex;
   align-items: center;
-  gap: 1.2rem;
-  padding: 1.2rem 1.4rem;
+  gap: 1rem;
+  padding: 1rem 1.6rem;
   border-radius: 1rem;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.06);
   transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  animation: fadeSlideIn 0.6s ease both;
+  animation: fadeSlideIn 0.5s ease both;
   animation-delay: var(--card-delay);
 }
 
@@ -216,12 +192,12 @@ function openMessenger(type) {
   border-color: var(--card-glow);
   box-shadow: 0 0 20px color-mix(in srgb, var(--card-glow) 25%, transparent),
               inset 0 0 20px color-mix(in srgb, var(--card-glow) 8%, transparent);
-  transform: translateX(4px);
+  transform: translateY(-2px);
 }
 
 .card-icon {
-  width: 3.6rem;
-  height: 3.6rem;
+  width: 3.4rem;
+  height: 3.4rem;
   border-radius: 0.8rem;
   display: flex;
   align-items: center;
@@ -236,17 +212,17 @@ function openMessenger(type) {
 }
 
 .card-svg {
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
 }
 
 .card-emoji {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
 }
 
 .card-name {
   font-family: var(--main-font);
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -254,24 +230,25 @@ function openMessenger(type) {
 }
 
 .card-value {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   color: rgba(255, 255, 255, 0.4);
   margin-top: 1px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-/* === Right: Forms === */
+.card-info {
+  min-width: 0;
+}
+
+/* === Content === */
 .content {
-  flex: 1;
-  overflow-y: auto;
-  padding: 3rem 4rem 4rem;
-  display: flex;
-  align-items: flex-start;
+  width: 100%;
+  margin-top: 2rem;
 }
-
-.content::-webkit-scrollbar { width: 0; }
 
 .right-side {
-  max-width: 60rem;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -346,6 +323,11 @@ function openMessenger(type) {
 
 .field input:focus,
 .field textarea:focus {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.field input:focus-visible,
+.field textarea:focus-visible {
   border-color: var(--highligh-color);
   box-shadow: 0 0 12px rgba(162, 118, 255, 0.2);
 }
@@ -485,8 +467,34 @@ function openMessenger(type) {
 .fade-leave-active { transition: opacity 0.3s; }
 .fade-enter-from, .fade-leave-to { opacity: 0; }
 
+@media (prefers-reduced-motion: reduce) {
+  .contact-card,
+  .left-title,
+  .glass-panel {
+    animation: none;
+  }
+  .contact-card,
+  .send-btn,
+  .msg-pill,
+  .btn-arrow {
+    transition: none;
+  }
+}
+
 /* === Responsive === */
+
+/* Ноутбук / небольшой десктоп */
+@media (max-width: 1199px) {
+  .main-window {
+    padding-left: 5rem;
+  }
+}
+
+/* Планшет */
 @media (max-width: 991px) {
+  .main-window {
+    padding: 2rem 3rem 3rem 3rem;
+  }
   .field-row {
     flex-direction: column;
     gap: 0;
@@ -494,30 +502,61 @@ function openMessenger(type) {
   .glass-panel {
     padding: 2rem;
   }
+  .contacts-strip {
+    gap: 0.8rem;
+  }
+  .contact-card {
+    padding: 0.8rem 1.2rem;
+  }
 }
 
+/* Маленький планшет / большой телефон */
 @media (max-width: 767px) {
+  .main-window {
+    padding: 2rem;
+  }
+  .contacts-strip {
+    flex-direction: column;
+  }
+  .contact-card {
+    width: 100%;
+  }
+  .section-title {
+    font-size: 2.2rem;
+  }
+  .messenger-grid {
+    flex-direction: column;
+  }
+  .msg-pill {
+    justify-content: center;
+  }
+}
+
+/* Телефон (sidebar скрыт через глобальные стили) */
+@media (max-width: 376px) {
   .main-window {
     position: relative;
     left: auto;
     width: 100%;
     height: auto;
-    flex-direction: column;
+    padding: 1.5rem;
   }
-  .left-side {
+  .glass-panel {
+    padding: 1.5rem;
+    border-radius: 1rem;
+  }
+  .section-title {
+    font-size: 2rem;
+    letter-spacing: 0.05em;
+  }
+  .field input,
+  .field textarea {
+    font-size: 1.6rem;
+    padding: 1rem;
+  }
+  .send-btn {
     width: 100%;
-    padding: 2rem;
-    gap: 0.6rem;
-  }
-  .left-side::after { display: none; }
-  .left-title { text-align: center; }
-  .content {
-    overflow-y: visible;
-    padding: 2rem;
-  }
-  .field-row {
-    flex-direction: column;
-    gap: 0;
+    justify-content: center;
   }
 }
 </style>

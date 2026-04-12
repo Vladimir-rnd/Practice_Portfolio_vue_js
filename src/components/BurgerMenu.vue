@@ -2,7 +2,11 @@
   <div
     class="burger"
     :class="{ active: isOpen }"
+    role="button"
+    aria-label="Открыть меню"
+    tabindex="0"
     @click="$emit('toggle')"
+    @keydown.enter="$emit('toggle')"
   >
     <span class="line line1"></span>
     <span class="line line2"></span>

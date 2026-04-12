@@ -16,26 +16,39 @@
 <style scoped>
 .yourlogo {
   position: relative;
-  margin-top: 6rem;
-  margin-bottom: 4rem;
+  margin-top: 4rem;
+  margin-bottom: 2.5rem;
   width: calc(var(--sidebar-width) - 5rem);
   display: inline-flex;
   flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.yourlogo:hover {
+  transform: scale(1.05);
 }
 
 .logo-code {
-  margin-top: 1.5rem;
-  width: var(--logo-code-size);
+  margin-top: 1rem;
+  width: calc(var(--logo-code-size) * 0.85);
+  transition: fill 0.3s, filter 0.3s;
 }
 
-.logo-code:hover {
-  stroke: var(--alt-color-1);
+.yourlogo:hover .logo-code {
+  filter: drop-shadow(0 0 8px rgba(86, 212, 253, 0.5));
 }
 
 .logo {
-  width: 100%;
+  width: 75%;
+  transition: filter 0.4s, transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.yourlogo:hover .logo {
+  filter: drop-shadow(0 0 12px rgba(162, 118, 255, 0.4));
+  transform: rotate(180deg);
 }
 
 @media (max-width: 991px) {

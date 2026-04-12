@@ -1,39 +1,17 @@
 <template>
-  <nav class="menu" :class="{ active: menuOpen }">
+  <nav class="menu" :class="{ active: menuOpen }" aria-label="Навигация по страницам">
     <router-link
-      to="/"
+      v-for="item in menuItems" :key="item.to"
+      :to="item.to"
       class="menu-item"
-      :class="{ 'active-menu-item': route.path === '/' }"
+      :class="{ 'active-menu-item': route.path === item.to }"
       @click="closeMenu"
     >
-      Обо мне
+      <span class="menu-marker"></span>
+      <span class="menu-text">{{ item.label }}</span>
     </router-link>
-    <router-link
-      to="/projects"
-      class="menu-item"
-      :class="{ 'active-menu-item': route.path === '/projects' }"
-      @click="closeMenu"
-    >
-      Проекты
-    </router-link>
-    <router-link
-      to="/skills"
-      class="menu-item"
-      :class="{ 'active-menu-item': route.path === '/skills' }"
-      @click="closeMenu"
-    >
-      Навыки
-    </router-link>
-    <router-link
-      to="/contacts"
-      class="menu-item"
-      :class="{ 'active-menu-item': route.path === '/contacts' }"
-      @click="closeMenu"
-    >
-      Контакты
-    </router-link>
-    <div class="menu-item copyright">©2023 @trionon</div>
   </nav>
+  <div class="copyright">©2023 @trionon</div>
 </template>
 
 <script setup>
@@ -43,6 +21,13 @@ import { useRoute } from "vue-router"
 const menuOpen = inject("menuOpen")
 const toggleMenu = inject("toggleMenu")
 const route = useRoute()
+
+const menuItems = [
+  { to: '/', label: 'Обо мне' },
+  { to: '/projects', label: 'Проекты' },
+  { to: '/skills', label: 'Навыки' },
+  { to: '/contacts', label: 'Контакты' },
+]
 
 function closeMenu() {
   if (menuOpen.value) {
@@ -63,9 +48,29 @@ function closeMenu() {
 }
 
 .menu-item {
+  position: relative;
   color: var(--main-color);
   text-decoration: none;
-  margin-top: 3.5rem;
+  margin-top: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.menu-marker {
+  display: inline-block;
+  width: 0.4rem;
+  height: 0;
+  border-radius: 0.2rem;
+  background: var(--highligh-color);
+  transition: height 0.3s, opacity 0.3s;
+  opacity: 0;
+}
+
+.active-menu-item .menu-marker {
+  height: 2.2rem;
+  opacity: 1;
 }
 
 .active-menu-item {
@@ -74,13 +79,36 @@ function closeMenu() {
 
 .menu-item:hover {
   color: var(--alt-color-1);
+  transform: translateX(3px);
+}
+
+.menu-item:hover .menu-marker {
+  height: 1.4rem;
+  opacity: 0.5;
+  background: var(--alt-color-1);
+}
+
+.menu-item:focus-visible {
+  outline: 2px solid var(--highligh-color);
+  outline-offset: 6px;
+  border-radius: 4px;
 }
 
 .copyright {
+  text-align: center;
+  color: var(--main-color);
+  font-family: var(--main-font);
+  font-size: calc(var(--menu-font-size) / 1.6);
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-  opacity: 0.25;
-  padding-top: 5rem;
-  font-size: calc(var(--menu-font-size) / 1.4);
+  opacity: 0.35;
+  margin-top: auto;
+  padding-bottom: 3rem;
+}
+
+@media (max-width: 991px) {
+  .menu-item {
+    margin-top: 2rem;
+  }
 }
 
 @media (max-width: 767px) {
@@ -109,6 +137,9 @@ function closeMenu() {
     position: fixed;
     width: 60%;
     visibility: visible;
+  }
+  .copyright {
+    display: none;
   }
 }
 </style>

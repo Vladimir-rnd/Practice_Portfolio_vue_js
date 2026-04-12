@@ -1,7 +1,9 @@
 <template>
   <div class="footer">
-    <img class="social-icon" src="/img/wp.svg" alt="WhatsApp">
-    <img class="social-icon" src="/img/telega.svg" alt="Telegram">
+    <a href="https://wa.me/79034339011" target="_blank"><img class="social-icon" src="/img/wp.svg" alt="WhatsApp"></a>
+    <a href="https://t.me/trionon_v" target="_blank"><img class="social-icon" src="/img/telega.svg" alt="Telegram"></a>
+    <a href="https://vk.me/id4226428" target="_blank"><img class="social-icon" src="/img/vk.svg" alt="VK"></a>
+    <a href="https://web.max.ru" target="_blank"><img class="social-icon" src="/img/max.svg" alt="MAX"></a>
   </div>
 </template>
 
@@ -14,21 +16,23 @@
 }
 
 .social-icon {
-  width: 10%;
+  width: 28px;
+  height: 28px;
 }
 
-@media (max-width: 376px) {
+@media (max-width: 576px) {
   .footer {
-    position: absolute;
-    margin-top: 2rem;
-    bottom: 1rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
     width: 100%;
+    height: 5rem;
     display: flex;
     justify-content: space-around;
+    align-items: center;
+    background: rgba(11, 11, 13, 0.9);
+    backdrop-filter: blur(8px);
+    z-index: 20;
   }
-}
-
-@media (min-width: 375px) {
-  .footer { display: none; }
 }
 </style>
