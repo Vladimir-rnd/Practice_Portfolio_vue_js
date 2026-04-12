@@ -28,11 +28,10 @@
       <div class="projects-header">Интерактивная страница в instagram для велоклуба "Добрый лис"</div>
       <div class="projects-row">
         <div class="projects-expl">
-          <span class="span-expl">Работа над проектом велоклуба 'Добрый Лис' окутала меня магией в каждом
-            вдохновляющем мгновении. В этой путанице захватывающих идей, каждая встреча с интересными и
-            одухотворенными людьми приближала меня к пониманию, как соткана ткань велосипедной страсти и
-            солидарности. Каждый миг вместе с ними открывал новые горизонты и углублял бескрайний флёр красоты
-            велоспорта</span>
+          <span class="span-expl">Интерактивная Instagram-страница для велоклуба «Добрый Лис».
+            Разработка визуального контента, единого стиля постов и stories, навигации по рубрикам.
+            Работа над этим проектом дала опыт взаимодействия в команде с дизайнерами и контент-менеджерами клуба,
+            понимание того, как визуальная айдентика формирует сообщество вокруг бренда.</span>
         </div>
         <div class="projects-screen-outer" ref="scrollContainer1" @wheel.prevent="handleScroll($event, 'scrollContainer1')">
           <div class="projects-screen-inner" style="width: 135rem;">
@@ -49,15 +48,11 @@
       <div class="projects-header">FLEX MOBILE APP: команда мечты</div>
       <div class="projects-row">
         <div class="projects-expl">
-          <span class="span-expl">Разработка приложения для команды разработчиков Flexy Team - это захватывающее
-            путешествие в мир технологий и инноваций. Это не просто приложение, это целая экосистема,
-            вдохновляющая пользователей и преображающая бизнес процессы.
-            Разработка приложения для Flexy Team - это процесс, заложенный в основе приверженности к качеству и
-            стремлению к совершенству.
-            Я готов был преодолевать любые технические вызовы и воплощать самые смелые идеи и построить лучшее
-            приложение для Flexy Team. Будущее - наше поле для творчества, и я готов менять мир одним кодовым блоком
-            за другим.
-          </span>
+          <span class="span-expl">Мобильное приложение для команды Flexy Team.
+            Проектирование интерфейса, адаптивная вёрстка экранов, работа с UI-kit.
+            Приложение объединяет экосистему инструментов для команды — от управления задачами
+            до коммуникации. Фокус на удобство навигации, чистоту визуала и отзывчивость интерфейса
+            на любых устройствах.</span>
         </div>
         <div class="projects-screen-outer" ref="scrollContainer2" @wheel.prevent="handleScroll($event, 'scrollContainer2')">
           <div class="projects-screen-inner projects-screen-inner-2" style="width: 225rem;">
@@ -76,11 +71,10 @@
       <div class="projects-header">simple-starter-template: первый проект</div>
       <div class="projects-row">
         <div class="projects-expl">
-          <span class="span-expl">
-            Участие в проекте simple-starter-template дало возможность изучить основы веб-разработки, получить
-            практический опыт, понять рабочий процесс и развить навыки сотрудничества. Этот проект стал ценной
-            отправной точкой, которая помогла создать базу кода и вдохновила на продолжение пути в веб-разработке.
-          </span>
+          <span class="span-expl">Стартовый шаблон для веб-проектов — фундамент, на котором строятся все последующие работы.
+            Семантическая HTML-вёрстка, адаптивный CSS, подключение шрифтов и иконок.
+            Этот проект стал отправной точкой: первый опыт работы с Git, понимание рабочего процесса
+            и навыки сотрудничества в команде разработчиков.</span>
         </div>
         <div class="projects-screen-outer" ref="scrollContainer3" @wheel.prevent="handleScroll($event, 'scrollContainer3')">
           <div class="projects-screen-inner projects-screen-inner-3" style="width: 240rem;">
@@ -97,14 +91,10 @@
       <div class="projects-header">Мой будущий проект для любимой сыроварни</div>
       <div class="projects-row">
         <div class="projects-expl">
-          <span class="span-expl">
-            Мой будущий проект - создание сайта для любимой сыроварни, и это восхитительная возможность поделиться
-            историей, страстью и уникальностью этого места. Этот сайт станет окном в мир сыроварни и притянет
-            внимание людей своим эстетическим дизайном и привлекательностью.
-            Сайт будет предлагать разделы, посвященные разным видам сыров, способам их приготовления и уникальным
-            рецептам. Также можно будет включить информацию о процессе производства сыра, от истории сыроделия до
-            использования местных ингредиентов и традиционных методов.
-          </span>
+          <span class="span-expl">Концепт сайта для крафтовой сыроварни — возможность передать историю и атмосферу
+            настоящего ремесла через дизайн. Каталог продукции с фотографиями, раздел рецептов,
+            рассказ о процессе производства — от выбора ингредиентов до традиционных методов выдержки.
+            Проект в активной разработке.</span>
         </div>
         <div class="projects-screen-outer" ref="scrollContainer4" @wheel.prevent="handleScroll($event, 'scrollContainer4')">
           <div class="projects-screen-inner projects-screen-inner-4" style="width: 140rem;">
@@ -164,30 +154,29 @@ onUnmounted(() => {
 
 <style scoped>
 .main-window {
-  position: relative;
-  margin-top: var(--main-window-top);
-  margin-left: calc(var(--sidebar-width) + var(--main-window-left));
-  width: var(--main-window-width);
-  height: auto;
-  display: inline-flex;
+  position: fixed;
+  top: 0;
+  left: var(--sidebar-width);
+  width: calc(100vw - var(--sidebar-width));
+  height: 100vh;
+  display: flex;
   flex-direction: column;
-  align-items: start;
-  padding-bottom: 5rem;
+  padding: 5rem 4rem 2rem 4rem;
 }
 
 .thumbs {
-  margin-top: 0rem;
-  width: var(--main-window-width);
-  display: inline-flex;
-  cursor: url("/Practice_Portfolio_vue_js/img/cursor.svg"), auto;
-  flex-wrap: wrap;
-  justify-content: flex-start;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 0.5rem 0 1rem;
+  flex-shrink: 0;
 }
 
 .projects {
   font-family: var(--body-font);
   font-size: var(--expl-font-size);
-  display: inline-flex;
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   background: rgba(255, 255, 255, 0.04);
@@ -195,13 +184,20 @@ onUnmounted(() => {
   border-radius: 1.6rem;
   padding: 3rem;
   backdrop-filter: blur(12px);
-  margin-top: 2rem;
+  margin-top: 1.5rem;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
   animation: fadeScaleIn 0.7s ease both;
 }
 
+.projects::-webkit-scrollbar { width: 0; }
+
 .projects-header {
-  font-family: var(--alt-font);
+  font-family: var(--main-font);
   font-size: var(--body-font-size);
+  font-weight: 500;
+  letter-spacing: 0.08em;
   margin-bottom: 2rem;
   width: 100%;
 }
@@ -212,22 +208,39 @@ onUnmounted(() => {
 }
 
 .projects-row {
-  display: inline-flex;
+  display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  gap: 3rem;
+  width: 100%;
 }
 
 .projects-expl {
-  width: 40%;
-  letter-spacing: 0.7rem;
-  margin-right: 5rem;
+  width: 35%;
+  flex-shrink: 0;
+  letter-spacing: 0.05em;
+  line-height: 170%;
 }
 
 .projects-screen-outer {
-  overflow: scroll;
-  width: 70rem;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  flex: 1;
+  min-width: 0;
   height: auto;
-  cursor: url("/Practice_Portfolio_vue_js/img/MouseScrool.png"), auto;
+  cursor: ew-resize;
+  position: relative;
+}
+
+.projects-screen-outer::after {
+  content: '← прокрутка →';
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.3);
+  pointer-events: none;
+  font-family: var(--body-font);
 }
 
 .projects-screen-inner {
@@ -267,59 +280,41 @@ onUnmounted(() => {
   width: 0;
 }
 
-@media (max-width: 1399px) {
-  .projects-expl {
-    width: 35%;
-    letter-spacing: 0.3rem;
-  }
-  .projects-screen-outer {
-    width: 50rem;
-  }
-  .projects-screen-inner {
-    width: 135rem;
-  }
-}
-
-@media (max-width: 1199px) {
-  .projects-screen-outer {
-    width: 45rem;
-  }
-}
-
 @media (max-width: 991px) {
-  .projects-expl {
-    letter-spacing: 0.2rem;
+  .projects {
+    padding: 2rem;
   }
-  .projects-screen-outer {
-    width: 38rem;
+  .projects-row {
+    flex-direction: column;
+  }
+  .projects-expl {
+    width: 100%;
   }
 }
 
 @media (max-width: 768px) {
   .main-window {
-    padding: 7rem 1.5rem 7rem;
-    margin: 0;
+    position: relative;
+    left: auto;
     width: 100%;
+    height: auto;
+    padding: 7rem 1.5rem 7rem;
   }
   .thumbs {
     display: none;
   }
   .projects {
-    padding: 2rem;
-  }
-  .projects-expl {
-    width: 100%;
-    margin-right: 0;
-    margin-bottom: 2rem;
-    letter-spacing: 0.1rem;
-  }
-  .projects-screen-outer {
-    width: 100%;
+    overflow-y: visible;
+    flex: none;
+    padding: 1.5rem;
   }
   .projects-img {
     margin-left: 0.5rem;
     width: 22rem;
     border-radius: 1rem;
+  }
+  .projects-img-hor {
+    width: 40rem;
   }
   .projects-screen-inner,
   .projects-screen-inner-3,

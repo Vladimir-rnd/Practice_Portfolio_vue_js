@@ -29,24 +29,27 @@ const imageSrc = computed(() => {
 
 <style scoped>
 .project {
-  font-family: var(--alt-font);
-  font-size: var(--basement-font-size);
-  width: 30rem;
+  font-family: var(--body-font);
+  font-size: 1.2rem;
+  width: 18rem;
   height: auto;
-  margin-bottom: 5rem;
+  margin-bottom: 0;
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
   cursor: pointer;
 }
 
 .project-expl {
-  width: 25rem;
+  width: 100%;
+  line-height: 130%;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .thumbs-icon {
   border-radius: var(--thumbs-radius);
   border: 2px solid rgba(255, 255, 255, 0.15);
-  width: 25rem;
+  width: 100%;
   transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
 }
 
