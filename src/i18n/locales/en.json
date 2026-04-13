@@ -122,5 +122,19 @@
   },
   "lang": {
     "switch": "RU"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "text": "Looks like this page doesn't exist. Maybe you followed an outdated link.",
+    "back": "Back to home"
+  },
+  "meta": {
+    "siteName": "Vladimir — Frontend Developer",
+    "description": "Frontend developer portfolio. Vue.js, responsive design, modern web interfaces.",
+    "titleHome": "Vladimir — Frontend Developer",
+    "titleProjects": "Projects — Vladimir",
+    "titleSkills": "Skills — Vladimir",
+    "titleContacts": "Contact — Vladimir",
+    "title404": "404 — Vladimir"
   }
 }

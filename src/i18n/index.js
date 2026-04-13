@@ -23,4 +23,17 @@ export function setLang(lang) {
   i18n.global.locale.value = lang
   localStorage.setItem('lang', lang)
   document.documentElement.lang = lang
+  // Re-apply current route title
+  const route = window.location.pathname
+  const titleMap = {
+    '/Practice_Portfolio_vue_js/': 'meta.titleHome',
+    '/Practice_Portfolio_vue_js/projects': 'meta.titleProjects',
+    '/Practice_Portfolio_vue_js/skills': 'meta.titleSkills',
+    '/Practice_Portfolio_vue_js/contacts': 'meta.titleContacts'
+  }
+  const key = titleMap[route] || 'meta.titleHome'
+  document.title = i18n.global.t(key)
+  // Update meta description
+  const desc = document.querySelector('meta[name="description"]')
+  if (desc) desc.setAttribute('content', i18n.global.t('meta.description'))
 }

@@ -2,12 +2,49 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="initial-scale=1, width=device-width">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0f185a">
+
+  <title>Vladimir — Frontend Developer</title>
+  <meta name="description" content="Портфолио frontend-разработчика. Vue.js, адаптивная вёрстка, современные веб-интерфейсы.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Vladimir — Frontend Developer">
+  <meta property="og:title" content="Vladimir — Frontend Developer">
+  <meta property="og:description" content="Портфолио frontend-разработчика. Vue.js, адаптивная вёрстка, современные веб-интерфейсы.">
+  <meta property="og:image" content="/Practice_Portfolio_vue_js/img/og-image.jpg">
+  <meta property="og:url" content="https://vladimir-rnd.github.io/Practice_Portfolio_vue_js/">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Vladimir — Frontend Developer">
+  <meta name="twitter:description" content="Frontend developer portfolio. Vue.js, responsive design, modern web interfaces.">
+  <meta name="twitter:image" content="/Practice_Portfolio_vue_js/img/og-image.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/Practice_Portfolio_vue_js/img/Logo.svg">
+  <link rel="apple-touch-icon" href="/Practice_Portfolio_vue_js/img/Logo.svg">
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto:wght@400;500;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/fce9a50d02.js" crossorigin="anonymous"></script>
-  <title>Практическое задание Портфолио</title>
+
+  <!-- SPA redirect from 404.html (rafgraph/spa-github-pages) -->
+  <script type="text/javascript">
+    (function(l) {
+      if (l.search[1] === '/') {
+        var decoded = l.search.slice(1).split('&').map(function(s) {
+          return s.replace(/~and~/g, '&')
+        }).join('?');
+        window.history.replaceState(null, null,
+          l.pathname.slice(0, -1) + decoded + l.hash
+        );
+      }
+    }(window.location));
+  </script>
 </head>
 <body>
   <div id="app"></div>

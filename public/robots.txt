@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vladimir-rnd.github.io/Practice_Portfolio_vue_js/sitemap.xml

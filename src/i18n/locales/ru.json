@@ -122,5 +122,19 @@
   },
   "lang": {
     "switch": "EN"
+  },
+  "notFound": {
+    "title": "Страница не найдена",
+    "text": "Похоже, такой страницы здесь нет. Возможно, вы перешли по устаревшей ссылке.",
+    "back": "На главную"
+  },
+  "meta": {
+    "siteName": "Vladimir — Frontend Developer",
+    "description": "Портфолио frontend-разработчика. Vue.js, адаптивная вёрстка, современные веб-интерфейсы.",
+    "titleHome": "Vladimir — Frontend Developer",
+    "titleProjects": "Проекты — Vladimir",
+    "titleSkills": "Навыки — Vladimir",
+    "titleContacts": "Контакты — Vladimir",
+    "title404": "404 — Vladimir"
   }
 }
