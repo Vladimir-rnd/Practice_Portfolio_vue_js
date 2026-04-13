@@ -24,83 +24,197 @@
     </div>
 
     <!-- Project 1: Veloclub -->
-    <div v-if="activeProject === 0 || isMobile" class="projects">
-      <div class="projects-header">Интерактивная страница в instagram для велоклуба "Добрый лис"</div>
-      <div class="projects-row">
-        <div class="projects-expl">
-          <span class="span-expl">Интерактивная Instagram-страница для велоклуба «Добрый Лис».
-            Разработка визуального контента, единого стиля постов и stories, навигации по рубрикам.
-            Работа над этим проектом дала опыт взаимодействия в команде с дизайнерами и контент-менеджерами клуба,
-            понимание того, как визуальная айдентика формирует сообщество вокруг бренда.</span>
+    <div v-if="activeProject === 0 || isMobile" id="project-0" class="projects velo-project">
+      <div class="velo-header">
+        <div>
+          <div class="velo-tag">Instagram · Brand · UI</div>
+          <h3 class="velo-title">Велоклуб «Добрый Лис»</h3>
         </div>
-        <div class="projects-screen-outer" ref="scrollContainer1" @wheel.prevent="handleScroll($event, 'scrollContainer1')">
-          <div class="projects-screen-inner" style="width: 135rem;">
-            <img class="projects-img" src="/img/velo1.png" alt="">
-            <img class="projects-img" src="/img/velo2.png" alt="">
-            <img class="projects-img" src="/img/velo2.png" alt="">
+        <div class="velo-meta">
+          <div class="meta-item"><span class="meta-num">2</span><span>экрана</span></div>
+          <div class="meta-item"><span class="meta-num">8+</span><span>рубрик</span></div>
+        </div>
+      </div>
+
+      <div class="velo-grid">
+        <div class="velo-text">
+          <p class="velo-desc">
+            Интерактивная Instagram-страница для велоклуба «Добрый Лис».
+            Разработка визуального контента, единого стиля постов и stories, навигации по рубрикам.
+          </p>
+          <p class="velo-desc">
+            Работа в команде с дизайнерами и контент-менеджерами клуба
+            дала понимание того, как визуальная айдентика формирует сообщество вокруг бренда.
+          </p>
+          <div class="velo-features">
+            <div class="feature">
+              <span class="feature-dot" style="--dot:#A276FF"></span>
+              <span>Велопрогулки по мистическим местам</span>
+            </div>
+            <div class="feature">
+              <span class="feature-dot" style="--dot:#56D4FD"></span>
+              <span>Трансфер с поездкой по области</span>
+            </div>
+            <div class="feature">
+              <span class="feature-dot" style="--dot:#decc95"></span>
+              <span>Походы с ночёвкой в палатках</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="phone-stack">
+          <div class="phone phone-back" @click="openLightbox(`${base}img/velo2.png`)">
+            <div class="phone-notch"></div>
+            <img src="/img/velo2.png" alt="Экран НЛО">
+          </div>
+          <div class="phone phone-front" @click="openLightbox(`${base}img/velo1.png`)">
+            <div class="phone-notch"></div>
+            <img src="/img/velo1.png" alt="Экран услуг">
           </div>
         </div>
       </div>
     </div>
 
+    <!-- Lightbox -->
+    <Transition name="fade">
+      <div v-if="lightboxImg" class="lightbox" @click="lightboxImg = null">
+        <button class="lightbox-close" @click.stop="lightboxImg = null" aria-label="Закрыть">×</button>
+        <img :src="lightboxImg" alt="" class="lightbox-img" @click.stop>
+      </div>
+    </Transition>
+
     <!-- Project 2: Flexy -->
-    <div v-if="activeProject === 1 || isMobile" class="projects">
-      <div class="projects-header">FLEX MOBILE APP: команда мечты</div>
-      <div class="projects-row">
-        <div class="projects-expl">
-          <span class="span-expl">Мобильное приложение для команды Flexy Team.
-            Проектирование интерфейса, адаптивная вёрстка экранов, работа с UI-kit.
-            Приложение объединяет экосистему инструментов для команды — от управления задачами
-            до коммуникации. Фокус на удобство навигации, чистоту визуала и отзывчивость интерфейса
-            на любых устройствах.</span>
+    <div v-if="activeProject === 1 || isMobile" id="project-1" class="projects velo-project">
+      <div class="velo-header">
+        <div>
+          <div class="velo-tag">Mobile App · UI/UX</div>
+          <h3 class="velo-title">FLEX Mobile App</h3>
         </div>
-        <div class="projects-screen-outer" ref="scrollContainer2" @wheel.prevent="handleScroll($event, 'scrollContainer2')">
-          <div class="projects-screen-inner projects-screen-inner-2" style="width: 225rem;">
-            <img class="projects-img" src="/img/flexy.png" alt="">
-            <img class="projects-img" src="/img/flexy2.png" alt="">
-            <img class="projects-img" src="/img/flexy3.png" alt="">
-            <img class="projects-img" src="/img/flexy4.png" alt="">
-            <img class="projects-img" src="/img/flexy5.png" alt="">
+        <div class="velo-meta">
+          <div class="meta-item"><span class="meta-num">5</span><span>экранов</span></div>
+          <div class="meta-item"><span class="meta-num">UI</span><span>kit</span></div>
+        </div>
+      </div>
+
+      <div class="velo-grid">
+        <div class="velo-text">
+          <p class="velo-desc">
+            Мобильное приложение для команды Flexy Team. Проектирование интерфейса,
+            адаптивная вёрстка экранов, работа с UI-kit.
+          </p>
+          <p class="velo-desc">
+            Приложение объединяет экосистему инструментов для команды — от управления
+            задачами до коммуникации. Фокус на удобство навигации, чистоту визуала
+            и отзывчивость интерфейса.
+          </p>
+          <div class="velo-features">
+            <div class="feature">
+              <span class="feature-dot" style="--dot:#A276FF"></span>
+              <span>Чистый UI с яркими акцентами</span>
+            </div>
+            <div class="feature">
+              <span class="feature-dot" style="--dot:#56D4FD"></span>
+              <span>Адаптивные экраны под все девайсы</span>
+            </div>
+            <div class="feature">
+              <span class="feature-dot" style="--dot:#decc95"></span>
+              <span>Единый дизайн-язык всего приложения</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="phone-carousel" ref="flexyCarousel" @wheel.prevent="handleHorizontalScroll($event, 'flexyCarousel')">
+          <div class="phone phone-mini" v-for="(img, i) in flexyImages" :key="i"
+               @click="openLightbox(`${base}img/${img}`)">
+            <div class="phone-notch"></div>
+            <img :src="`${base}img/${img}`" :alt="`Экран ${i + 1}`">
           </div>
         </div>
       </div>
     </div>
 
     <!-- Project 3: Template -->
-    <div v-if="activeProject === 2 || isMobile" class="projects">
-      <div class="projects-header">simple-starter-template: первый проект</div>
-      <div class="projects-row">
-        <div class="projects-expl">
-          <span class="span-expl">Стартовый шаблон для веб-проектов — фундамент, на котором строятся все последующие работы.
-            Семантическая HTML-вёрстка, адаптивный CSS, подключение шрифтов и иконок.
-            Этот проект стал отправной точкой: первый опыт работы с Git, понимание рабочего процесса
-            и навыки сотрудничества в команде разработчиков.</span>
+    <div v-if="activeProject === 2 || isMobile" id="project-2" class="projects velo-project">
+      <div class="velo-header">
+        <div>
+          <div class="velo-tag">Web · HTML/CSS · Git</div>
+          <h3 class="velo-title">Simple Starter Template</h3>
         </div>
-        <div class="projects-screen-outer" ref="scrollContainer3" @wheel.prevent="handleScroll($event, 'scrollContainer3')">
-          <div class="projects-screen-inner projects-screen-inner-3" style="width: 240rem;">
-            <img class="projects-img projects-img-hor" src="/img/templ1.png" alt="">
-            <img class="projects-img projects-img-hor" src="/img/templ2.png" alt="">
-            <img class="projects-img projects-img-hor" src="/img/templ3.png" alt="">
+        <div class="velo-meta">
+          <div class="meta-item"><span class="meta-num">3</span><span>страницы</span></div>
+          <div class="meta-item"><span class="meta-num">1st</span><span>проект</span></div>
+        </div>
+      </div>
+
+      <div class="velo-text">
+        <p class="velo-desc">
+          Стартовый шаблон для веб-проектов — фундамент, на котором строятся все последующие работы.
+          Семантическая HTML-вёрстка, адаптивный CSS, подключение шрифтов и иконок.
+        </p>
+        <p class="velo-desc">
+          Этот проект стал отправной точкой: первый опыт работы с Git, понимание рабочего процесса
+          и навыки сотрудничества в команде разработчиков.
+        </p>
+      </div>
+
+      <div class="browser-stack">
+        <div class="browser-mockup" v-for="(img, i) in templImages" :key="i"
+             @click="openLightbox(`${base}img/${img}`)">
+          <div class="browser-bar">
+            <span class="browser-dot" style="--c:#ff5f57"></span>
+            <span class="browser-dot" style="--c:#ffbd2e"></span>
+            <span class="browser-dot" style="--c:#28ca41"></span>
+            <span class="browser-url">simple-starter-template</span>
           </div>
+          <img :src="`${base}img/${img}`" :alt="`Страница ${i + 1}`">
         </div>
       </div>
     </div>
 
     <!-- Project 4: Cheese -->
-    <div v-if="activeProject === 3 || isMobile" class="projects">
-      <div class="projects-header">Мой будущий проект для любимой сыроварни</div>
-      <div class="projects-row">
-        <div class="projects-expl">
-          <span class="span-expl">Концепт сайта для крафтовой сыроварни — возможность передать историю и атмосферу
-            настоящего ремесла через дизайн. Каталог продукции с фотографиями, раздел рецептов,
-            рассказ о процессе производства — от выбора ингредиентов до традиционных методов выдержки.
-            Проект в активной разработке.</span>
+    <div v-if="activeProject === 3 || isMobile" id="project-3" class="projects velo-project">
+      <div class="velo-header">
+        <div>
+          <div class="velo-tag">In Progress · Brand · Web</div>
+          <h3 class="velo-title">Сыроварня</h3>
         </div>
-        <div class="projects-screen-outer" ref="scrollContainer4" @wheel.prevent="handleScroll($event, 'scrollContainer4')">
-          <div class="projects-screen-inner projects-screen-inner-4" style="width: 140rem;">
-            <img class="projects-img" src="/img/cheese1.jpg" alt="">
-            <img class="projects-img" src="/img/cheese2.jpg" alt="">
-            <img class="projects-img" src="/img/cheese3.jpg" alt="">
+        <div class="velo-meta">
+          <div class="meta-item"><span class="meta-num">3</span><span>фото</span></div>
+          <div class="meta-item"><span class="meta-num">WIP</span><span>статус</span></div>
+        </div>
+      </div>
+
+      <div class="velo-grid">
+        <div class="velo-text">
+          <p class="velo-desc">
+            Концепт сайта для крафтовой сыроварни — возможность передать историю и атмосферу
+            настоящего ремесла через дизайн.
+          </p>
+          <p class="velo-desc">
+            Каталог продукции с фотографиями, раздел рецептов, рассказ о процессе производства —
+            от выбора ингредиентов до традиционных методов выдержки.
+          </p>
+          <div class="velo-features">
+            <div class="feature">
+              <span class="feature-dot" style="--dot:#decc95"></span>
+              <span>Фуд-фотография как основа</span>
+            </div>
+            <div class="feature">
+              <span class="feature-dot" style="--dot:#A276FF"></span>
+              <span>История и ремесло в каждом разделе</span>
+            </div>
+            <div class="feature">
+              <span class="feature-dot" style="--dot:#56D4FD"></span>
+              <span>Каталог с описанием сортов</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="polaroid-stack">
+          <div class="polaroid" v-for="(img, i) in cheeseImages" :key="i"
+               :style="{ '--rot': polaroidRot(i) }"
+               @click="openLightbox(`${base}img/${img}`)">
+            <img :src="`${base}img/${img}`" :alt="`Фото ${i + 1}`">
           </div>
         </div>
       </div>
@@ -109,22 +223,54 @@
 </template>
 
 <script setup>
-import { ref, computed, useTemplateRef, onMounted, onUnmounted, watch } from 'vue'
+import { ref, computed, useTemplateRef, onMounted, onUnmounted, watch, nextTick } from 'vue'
 import { useRoute } from 'vue-router'
 import ProjectCard from '@/components/ProjectCard.vue'
 
 const route = useRoute()
+const base = import.meta.env.BASE_URL
 const activeProject = ref(parseInt(route.query.p) || 0)
 const windowWidth = ref(window.innerWidth)
+const lightboxImg = ref(null)
+
+function openLightbox(src) {
+  lightboxImg.value = src
+}
+
+function scrollToProject(idx) {
+  nextTick(() => {
+    const el = document.getElementById(`project-${idx}`)
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  })
+}
+
+const flexyImages = ['flexy.png', 'flexy2.png', 'flexy3.png', 'flexy4.png', 'flexy5.png']
+const templImages = ['templ1.png', 'templ2.png', 'templ3.png']
+const cheeseImages = ['cheese1.jpg', 'cheese2.jpg', 'cheese3.jpg']
+
+function polaroidRot(i) {
+  return `${[-4, 2, -3][i] || 0}deg`
+}
 
 watch(() => route.query.p, (newP) => {
-  activeProject.value = parseInt(newP) || 0
+  const idx = parseInt(newP) || 0
+  activeProject.value = idx
+  if (windowWidth.value <= 768) scrollToProject(idx)
 })
 
 const scrollContainer1 = ref(null)
 const scrollContainer2 = ref(null)
 const scrollContainer3 = ref(null)
 const scrollContainer4 = ref(null)
+const flexyCarousel = ref(null)
+
+function handleHorizontalScroll(event, refName) {
+  const refs = { flexyCarousel }
+  const container = refs[refName]
+  if (container && container.value) {
+    container.value.scrollLeft += event.deltaY > 0 ? 200 : -200
+  }
+}
 
 const isMobile = computed(() => windowWidth.value <= 768)
 
@@ -151,6 +297,9 @@ function onResize() {
 
 onMounted(() => {
   window.addEventListener('resize', onResize)
+  if (windowWidth.value <= 768 && route.query.p) {
+    scrollToProject(parseInt(route.query.p) || 0)
+  }
 })
 
 onUnmounted(() => {
@@ -185,11 +334,11 @@ onUnmounted(() => {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.005);
+  border: 1px solid rgba(255, 255, 255, 0.03);
   border-radius: 1.6rem;
   padding: 3rem;
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(2px);
   margin-top: 1.5rem;
   flex: 1;
   min-height: 0;
@@ -198,6 +347,424 @@ onUnmounted(() => {
 }
 
 .projects::-webkit-scrollbar { width: 0; }
+
+/* === Veloclub Project — special layout === */
+.velo-project {
+  display: flex !important;
+  flex-direction: column !important;
+  flex-wrap: nowrap !important;
+  gap: 3rem;
+}
+
+.velo-project > * {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.velo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.velo-tag {
+  font-family: var(--main-font);
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--highligh-color);
+  margin-bottom: 0.6rem;
+}
+
+.velo-title {
+  font-family: var(--main-font);
+  font-size: 3.2rem;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+
+.velo-meta {
+  display: flex;
+  gap: 3rem;
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  font-family: var(--body-font);
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.meta-num {
+  font-family: var(--main-font);
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: var(--main-color);
+  letter-spacing: 0.02em;
+}
+
+.velo-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.velo-grid > * {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.velo-grid .phone-carousel {
+  width: 100%;
+  max-width: 100%;
+}
+
+.velo-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.velo-desc {
+  font-family: var(--body-font);
+  font-size: 1.6rem;
+  line-height: 165%;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+}
+
+.velo-features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 1rem;
+  padding-left: 1.2rem;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: var(--body-font);
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.feature-dot {
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  background: var(--dot);
+  flex-shrink: 0;
+  box-shadow: 0 0 8px var(--dot), 0 0 12px var(--dot);
+}
+
+/* Phone mockups */
+.phone-stack {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50rem;
+}
+
+.phone {
+  position: relative;
+  width: 22rem;
+  aspect-ratio: 9/19;
+  background: #1a1a2e;
+  border-radius: 3rem;
+  border: 4px solid rgba(255, 255, 255, 0.15);
+  padding: 0.8rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s;
+  cursor: zoom-in;
+}
+
+.phone:hover {
+  border-color: var(--highligh-color);
+}
+
+.phone img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 2rem;
+}
+
+.phone-notch {
+  position: absolute;
+  top: 0.6rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6rem;
+  height: 1.2rem;
+  background: #000;
+  border-radius: 0 0 1rem 1rem;
+  z-index: 2;
+}
+
+.phone-back {
+  position: absolute;
+  left: 30%;
+  transform: rotate(-6deg);
+  opacity: 0.7;
+  filter: blur(0.5px);
+}
+
+.phone-front {
+  position: relative;
+  z-index: 1;
+  transform: rotate(4deg) translateX(20%);
+}
+
+.phone-stack:hover .phone-back {
+  transform: rotate(-10deg) translateX(-20%);
+}
+
+.phone-stack:hover .phone-front {
+  transform: rotate(8deg) translateX(30%);
+}
+
+/* === Phone carousel (Flexy — 5 phones, horizontal scroll) === */
+.phone-carousel {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  padding: 1rem 2rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x proximity;
+  cursor: ew-resize;
+  height: 41rem;
+}
+
+.phone-carousel::-webkit-scrollbar { height: 6px; }
+.phone-carousel::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.05); border-radius: 3px; }
+.phone-carousel::-webkit-scrollbar-thumb { background: rgba(162, 118, 255, 0.5); border-radius: 3px; }
+
+.phone-mini {
+  width: 18rem;
+  height: 38rem;
+  aspect-ratio: auto;
+  flex-shrink: 0;
+  cursor: zoom-in;
+  scroll-snap-align: center;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s;
+}
+
+.phone-mini:hover {
+  transform: translateY(-8px) scale(1.03);
+  border-color: var(--highligh-color);
+}
+
+.phone-mini .phone-notch {
+  width: 4rem;
+  height: 0.8rem;
+  top: 0.4rem;
+  border-radius: 0 0 0.6rem 0.6rem;
+}
+
+/* === Browser mockup (Template — 3 web screenshots) === */
+.browser-stack {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.browser-mockup {
+  background: #1a1a2e;
+  border-radius: 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  cursor: zoom-in;
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+.browser-mockup:hover {
+  transform: translateY(-4px);
+  border-color: var(--highligh-color);
+  box-shadow: 0 8px 30px rgba(162, 118, 255, 0.2);
+}
+
+.browser-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  background: rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.browser-dot {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: var(--c);
+  flex-shrink: 0;
+}
+
+.browser-url {
+  font-family: var(--body-font);
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin-left: 1rem;
+}
+
+.browser-mockup img {
+  width: 100%;
+  display: block;
+}
+
+/* === Polaroid stack (Cheese — 3 photos) === */
+.polaroid-stack {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.polaroid {
+  background: #fafafa;
+  padding: 1rem 1rem 3rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  cursor: zoom-in;
+  transform: rotate(var(--rot));
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s;
+  width: 16rem;
+}
+
+.polaroid:hover {
+  transform: rotate(0) scale(1.05);
+  box-shadow: 0 16px 50px rgba(222, 204, 149, 0.3);
+  z-index: 5;
+}
+
+.polaroid img {
+  width: 100%;
+  height: 20rem;
+  object-fit: cover;
+  display: block;
+}
+
+/* === Lightbox === */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  cursor: zoom-out;
+  padding: 4rem 2rem;
+}
+
+.lightbox-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 1rem;
+  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.8);
+  cursor: default;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  width: 4rem;
+  height: 4rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: #fff;
+  font-size: 2.4rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.fade-enter-active, .fade-leave-active { transition: opacity 0.3s; }
+.fade-enter-from, .fade-leave-to { opacity: 0; }
+
+@media (max-width: 991px) {
+  .velo-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .phone-stack {
+    min-height: 42rem;
+  }
+  .phone {
+    width: 18rem;
+  }
+  .phone-mini {
+    width: 16rem;
+    height: 34rem;
+  }
+  .phone-carousel {
+    height: 38rem;
+    gap: 2rem;
+  }
+  .browser-stack {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .velo-title {
+    font-size: 2.4rem;
+  }
+  .velo-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .velo-meta {
+    gap: 2rem;
+  }
+  .meta-num {
+    font-size: 2rem;
+  }
+  .phone {
+    width: 16rem;
+  }
+  .phone-mini {
+    width: 14rem;
+    height: 30rem;
+  }
+  .phone-carousel {
+    height: 34rem;
+    gap: 1.5rem;
+    padding: 0.5rem 1rem;
+  }
+  .browser-stack {
+    grid-template-columns: 1fr;
+  }
+  .polaroid {
+    width: 14rem;
+  }
+  .velo-desc {
+    font-size: 1.4rem;
+  }
+}
 
 .projects-header {
   font-family: var(--main-font);
