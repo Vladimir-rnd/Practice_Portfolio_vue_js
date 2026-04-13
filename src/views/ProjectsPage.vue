@@ -27,49 +27,43 @@
     <div v-if="activeProject === 0 || isMobile" id="project-0" class="projects velo-project">
       <div class="velo-header">
         <div>
-          <div class="velo-tag">Instagram · Brand · UI</div>
-          <h3 class="velo-title">Велоклуб «Добрый Лис»</h3>
+          <div class="velo-tag">{{ t('projects.velo.tag') }}</div>
+          <h3 class="velo-title">{{ t('projects.velo.title') }}</h3>
         </div>
         <div class="velo-meta">
-          <div class="meta-item"><span class="meta-num">2</span><span>экрана</span></div>
-          <div class="meta-item"><span class="meta-num">8+</span><span>рубрик</span></div>
+          <div class="meta-item"><span class="meta-num">4</span><span>{{ t('projects.velo.metaScreens') }}</span></div>
+          <div class="meta-item"><span class="meta-num">8+</span><span>{{ t('projects.velo.metaSections') }}</span></div>
         </div>
       </div>
 
       <div class="velo-grid">
         <div class="velo-text">
-          <p class="velo-desc">
-            Интерактивная Instagram-страница для велоклуба «Добрый Лис».
-            Разработка визуального контента, единого стиля постов и stories, навигации по рубрикам.
-          </p>
-          <p class="velo-desc">
-            Работа в команде с дизайнерами и контент-менеджерами клуба
-            дала понимание того, как визуальная айдентика формирует сообщество вокруг бренда.
-          </p>
+          <p class="velo-desc">{{ t('projects.velo.desc1') }}</p>
+          <p class="velo-desc">{{ t('projects.velo.desc2') }}</p>
           <div class="velo-features">
             <div class="feature">
               <span class="feature-dot" style="--dot:#A276FF"></span>
-              <span>Велопрогулки по мистическим местам</span>
+              <span>{{ t('projects.velo.f1') }}</span>
             </div>
             <div class="feature">
               <span class="feature-dot" style="--dot:#56D4FD"></span>
-              <span>Трансфер с поездкой по области</span>
+              <span>{{ t('projects.velo.f2') }}</span>
             </div>
             <div class="feature">
               <span class="feature-dot" style="--dot:#decc95"></span>
-              <span>Походы с ночёвкой в палатках</span>
+              <span>{{ t('projects.velo.f3') }}</span>
             </div>
           </div>
         </div>
 
         <div class="phone-stack">
-          <div class="phone phone-back" @click="openLightbox(`${base}img/velo2.png`)">
+          <div class="phone phone-back" @click="openLightbox(`${base}img/velo2.jpg`)">
             <div class="phone-notch"></div>
-            <img src="/img/velo2.png" alt="Экран НЛО">
+            <img loading="lazy" src="/img/velo2.jpg" alt="Экран НЛО">
           </div>
-          <div class="phone phone-front" @click="openLightbox(`${base}img/velo1.png`)">
+          <div class="phone phone-front" @click="openLightbox(`${base}img/velo1.jpg`)">
             <div class="phone-notch"></div>
-            <img src="/img/velo1.png" alt="Экран услуг">
+            <img loading="lazy" src="/img/velo1.jpg" alt="Экран услуг">
           </div>
         </div>
       </div>
@@ -87,38 +81,31 @@
     <div v-if="activeProject === 1 || isMobile" id="project-1" class="projects velo-project">
       <div class="velo-header">
         <div>
-          <div class="velo-tag">Mobile App · UI/UX</div>
-          <h3 class="velo-title">FLEX Mobile App</h3>
+          <div class="velo-tag">{{ t('projects.flexy.tag') }}</div>
+          <h3 class="velo-title">{{ t('projects.flexy.title') }}</h3>
         </div>
         <div class="velo-meta">
-          <div class="meta-item"><span class="meta-num">5</span><span>экранов</span></div>
-          <div class="meta-item"><span class="meta-num">UI</span><span>kit</span></div>
+          <div class="meta-item"><span class="meta-num">5</span><span>{{ t('projects.flexy.metaScreens') }}</span></div>
+          <div class="meta-item"><span class="meta-num">UI</span><span>{{ t('projects.flexy.metaUikit') }}</span></div>
         </div>
       </div>
 
       <div class="velo-grid">
         <div class="velo-text">
-          <p class="velo-desc">
-            Мобильное приложение для команды Flexy Team. Проектирование интерфейса,
-            адаптивная вёрстка экранов, работа с UI-kit.
-          </p>
-          <p class="velo-desc">
-            Приложение объединяет экосистему инструментов для команды — от управления
-            задачами до коммуникации. Фокус на удобство навигации, чистоту визуала
-            и отзывчивость интерфейса.
-          </p>
+          <p class="velo-desc">{{ t('projects.flexy.desc1') }}</p>
+          <p class="velo-desc">{{ t('projects.flexy.desc2') }}</p>
           <div class="velo-features">
             <div class="feature">
               <span class="feature-dot" style="--dot:#A276FF"></span>
-              <span>Чистый UI с яркими акцентами</span>
+              <span>{{ t('projects.flexy.f1') }}</span>
             </div>
             <div class="feature">
               <span class="feature-dot" style="--dot:#56D4FD"></span>
-              <span>Адаптивные экраны под все девайсы</span>
+              <span>{{ t('projects.flexy.f2') }}</span>
             </div>
             <div class="feature">
               <span class="feature-dot" style="--dot:#decc95"></span>
-              <span>Единый дизайн-язык всего приложения</span>
+              <span>{{ t('projects.flexy.f3') }}</span>
             </div>
           </div>
         </div>
@@ -127,7 +114,7 @@
           <div class="phone phone-mini" v-for="(img, i) in flexyImages" :key="i"
                @click="openLightbox(`${base}img/${img}`)">
             <div class="phone-notch"></div>
-            <img :src="`${base}img/${img}`" :alt="`Экран ${i + 1}`">
+            <img loading="lazy" :src="`${base}img/${img}`" :alt="`Экран ${i + 1}`">
           </div>
         </div>
       </div>
@@ -137,24 +124,18 @@
     <div v-if="activeProject === 2 || isMobile" id="project-2" class="projects velo-project">
       <div class="velo-header">
         <div>
-          <div class="velo-tag">Web · HTML/CSS · Git</div>
-          <h3 class="velo-title">Simple Starter Template</h3>
+          <div class="velo-tag">{{ t('projects.template.tag') }}</div>
+          <h3 class="velo-title">{{ t('projects.template.title') }}</h3>
         </div>
         <div class="velo-meta">
-          <div class="meta-item"><span class="meta-num">3</span><span>страницы</span></div>
-          <div class="meta-item"><span class="meta-num">1st</span><span>проект</span></div>
+          <div class="meta-item"><span class="meta-num">3</span><span>{{ t('projects.template.metaPages') }}</span></div>
+          <div class="meta-item"><span class="meta-num">{{ t('projects.template.metaProjectNum') }}</span><span>{{ t('projects.template.metaProject') }}</span></div>
         </div>
       </div>
 
       <div class="velo-text">
-        <p class="velo-desc">
-          Стартовый шаблон для веб-проектов — фундамент, на котором строятся все последующие работы.
-          Семантическая HTML-вёрстка, адаптивный CSS, подключение шрифтов и иконок.
-        </p>
-        <p class="velo-desc">
-          Этот проект стал отправной точкой: первый опыт работы с Git, понимание рабочего процесса
-          и навыки сотрудничества в команде разработчиков.
-        </p>
+        <p class="velo-desc">{{ t('projects.template.desc1') }}</p>
+        <p class="velo-desc">{{ t('projects.template.desc2') }}</p>
       </div>
 
       <div class="browser-stack">
@@ -166,7 +147,7 @@
             <span class="browser-dot" style="--c:#28ca41"></span>
             <span class="browser-url">simple-starter-template</span>
           </div>
-          <img :src="`${base}img/${img}`" :alt="`Страница ${i + 1}`">
+          <img loading="lazy" :src="`${base}img/${img}`" :alt="`Страница ${i + 1}`">
         </div>
       </div>
     </div>
@@ -175,37 +156,31 @@
     <div v-if="activeProject === 3 || isMobile" id="project-3" class="projects velo-project">
       <div class="velo-header">
         <div>
-          <div class="velo-tag">In Progress · Brand · Web</div>
-          <h3 class="velo-title">Сыроварня</h3>
+          <div class="velo-tag">{{ t('projects.cheese.tag') }}</div>
+          <h3 class="velo-title">{{ t('projects.cheese.title') }}</h3>
         </div>
         <div class="velo-meta">
-          <div class="meta-item"><span class="meta-num">3</span><span>фото</span></div>
-          <div class="meta-item"><span class="meta-num">WIP</span><span>статус</span></div>
+          <div class="meta-item"><span class="meta-num">3</span><span>{{ t('projects.cheese.metaPhotos') }}</span></div>
+          <div class="meta-item"><span class="meta-num">WIP</span><span>{{ t('projects.cheese.metaStatus') }}</span></div>
         </div>
       </div>
 
       <div class="velo-grid">
         <div class="velo-text">
-          <p class="velo-desc">
-            Концепт сайта для крафтовой сыроварни — возможность передать историю и атмосферу
-            настоящего ремесла через дизайн.
-          </p>
-          <p class="velo-desc">
-            Каталог продукции с фотографиями, раздел рецептов, рассказ о процессе производства —
-            от выбора ингредиентов до традиционных методов выдержки.
-          </p>
+          <p class="velo-desc">{{ t('projects.cheese.desc1') }}</p>
+          <p class="velo-desc">{{ t('projects.cheese.desc2') }}</p>
           <div class="velo-features">
             <div class="feature">
               <span class="feature-dot" style="--dot:#decc95"></span>
-              <span>Фуд-фотография как основа</span>
+              <span>{{ t('projects.cheese.f1') }}</span>
             </div>
             <div class="feature">
               <span class="feature-dot" style="--dot:#A276FF"></span>
-              <span>История и ремесло в каждом разделе</span>
+              <span>{{ t('projects.cheese.f2') }}</span>
             </div>
             <div class="feature">
               <span class="feature-dot" style="--dot:#56D4FD"></span>
-              <span>Каталог с описанием сортов</span>
+              <span>{{ t('projects.cheese.f3') }}</span>
             </div>
           </div>
         </div>
@@ -214,7 +189,7 @@
           <div class="polaroid" v-for="(img, i) in cheeseImages" :key="i"
                :style="{ '--rot': polaroidRot(i) }"
                @click="openLightbox(`${base}img/${img}`)">
-            <img :src="`${base}img/${img}`" :alt="`Фото ${i + 1}`">
+            <img loading="lazy" :src="`${base}img/${img}`" :alt="`Фото ${i + 1}`">
           </div>
         </div>
       </div>
@@ -225,7 +200,10 @@
 <script setup>
 import { ref, computed, useTemplateRef, onMounted, onUnmounted, watch, nextTick } from 'vue'
 import { useRoute } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 import ProjectCard from '@/components/ProjectCard.vue'
+
+const { t } = useI18n()
 
 const route = useRoute()
 const base = import.meta.env.BASE_URL
@@ -244,8 +222,8 @@ function scrollToProject(idx) {
   })
 }
 
-const flexyImages = ['flexy.png', 'flexy2.png', 'flexy3.png', 'flexy4.png', 'flexy5.png']
-const templImages = ['templ1.png', 'templ2.png', 'templ3.png']
+const flexyImages = ['flexy.jpg', 'flexy2.jpg', 'flexy3.jpg', 'flexy4.jpg', 'flexy5.jpg']
+const templImages = ['templ1.jpg', 'templ2.jpg', 'templ3.jpg']
 const cheeseImages = ['cheese1.jpg', 'cheese2.jpg', 'cheese3.jpg']
 
 function polaroidRot(i) {
@@ -805,7 +783,7 @@ onUnmounted(() => {
 }
 
 .projects-screen-outer::after {
-  content: '← прокрутка →';
+  content: var(--scroll-hint, '← scroll →');
   position: absolute;
   bottom: 1rem;
   left: 50%;

@@ -1,24 +1,26 @@
 <template>
   <div class="skills">
-    <div v-for="t in techs" :key="t.name" class="tech-badge"
-         :style="{ '--tech-color': t.color }">
-      <img :src="t.icon" :alt="t.name" class="tech-icon">
+    <div v-for="tech in techs" :key="tech.name" class="tech-badge"
+         :style="{ '--tech-color': tech.color }">
+      <img :src="tech.icon" :alt="tech.name" class="tech-icon">
       <div class="tech-content">
-        <span class="tech-name">{{ t.name }}</span>
-        <span class="tech-desc">{{ t.desc }}</span>
+        <span class="tech-name">{{ tech.name }}</span>
+        <span class="tech-desc">{{ t(`techDesc.${tech.descKey}`) }}</span>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
 const base = import.meta.env.BASE_URL
 
 const techs = [
-  { name: 'HTML5',      desc: 'Семантическая вёрстка',     icon: `${base}img/tech-html.svg`, color: '#E34F26' },
-  { name: 'CSS3',       desc: 'Flexbox, Grid, анимации',   icon: `${base}img/tech-css.svg`,  color: '#2965F1' },
-  { name: 'JavaScript', desc: 'ES6+, DOM, асинхронность',  icon: `${base}img/tech-js.svg`,   color: '#F7DF1E' },
-  { name: 'Vue.js',     desc: 'Composition API, Router',   icon: `${base}img/tech-vue.svg`,  color: '#42B883' },
+  { name: 'HTML5',      descKey: 'html', icon: `${base}img/tech-html.svg`, color: '#E34F26' },
+  { name: 'CSS3',       descKey: 'css',  icon: `${base}img/tech-css.svg`,  color: '#2965F1' },
+  { name: 'JavaScript', descKey: 'js',   icon: `${base}img/tech-js.svg`,   color: '#F7DF1E' },
+  { name: 'Vue.js',     descKey: 'vue',  icon: `${base}img/tech-vue.svg`,  color: '#42B883' },
 ]
 </script>
 

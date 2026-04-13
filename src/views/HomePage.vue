@@ -3,33 +3,27 @@
     <!-- Hero -->
     <section class="hero glass-panel" style="--panel-delay: 0.1s">
       <div class="hero-text">
-        <p class="hero-tagline">Закодируй мир:</p>
-        <h1 class="hero-title">FrontEnd</h1>
-        <p class="hero-sub">
-          Создаю современные веб-интерфейсы, которые работают быстро, выглядят чисто и нравятся пользователям.
-        </p>
+        <p class="hero-tagline">{{ t('home.tagline') }}</p>
+        <h1 class="hero-title">{{ t('home.title') }}</h1>
+        <p class="hero-sub">{{ t('home.sub') }}</p>
       </div>
       <div class="hero-stack">
-        <span class="stack-label">Технологии</span>
+        <span class="stack-label">{{ t('home.stackLabel') }}</span>
         <SkillsIcons class="hero-icons" />
       </div>
     </section>
 
     <!-- Представление -->
     <section class="intro glass-panel" style="--panel-delay: 0.25s">
-      <div class="intro-greeting">Меня зовут <span class="accent">Владимир</span></div>
-      <p class="intro-text">
-        Frontend-разработчик. Делаю адаптивные сайты и одностраничные приложения на Vue.js — от первого макета
-        до публикации. Уделяю внимание деталям: типографике, отзывчивости интерфейса, доступности.
-        Открыт к интересным проектам.
-      </p>
+      <div class="intro-greeting">{{ t('home.introGreeting') }} <span class="accent">{{ t('home.introName') }}</span></div>
+      <p class="intro-text">{{ t('home.introText') }}</p>
     </section>
 
     <!-- Лучшие проекты -->
     <section class="projects-section" style="--panel-delay: 0.4s">
       <div class="section-header">
-        <h2 class="section-title">Избранные проекты</h2>
-        <router-link to="/projects" class="section-link">Все проекты →</router-link>
+        <h2 class="section-title">{{ t('home.featuredProjects') }}</h2>
+        <router-link to="/projects" class="section-link">{{ t('home.allProjects') }}</router-link>
       </div>
       <div class="projects-grid">
         <router-link :to="`/projects?p=${p.id}`" class="project-card glass-panel"
@@ -39,8 +33,8 @@
             <img :src="p.image" :alt="p.title">
           </div>
           <div class="project-info">
-            <div class="project-tag">{{ p.tag }}</div>
-            <div class="project-title">{{ p.title }}</div>
+            <div class="project-tag">{{ t(`home.projects.${p.key}.tag`) }}</div>
+            <div class="project-title">{{ t(`home.projects.${p.key}.title`) }}</div>
           </div>
         </router-link>
       </div>
@@ -49,14 +43,16 @@
 </template>
 
 <script setup>
+import { useI18n } from 'vue-i18n'
 import SkillsIcons from '@/components/SkillsIcons.vue'
 
+const { t } = useI18n()
 const base = import.meta.env.BASE_URL
 
 const projects = [
-  { id: 0, title: 'Велоклуб «Добрый Лис»',  tag: 'Instagram', image: `${base}img/moon.png` },
-  { id: 1, title: 'FLEX Mobile App',         tag: 'Mobile UI', image: `${base}img/sunset.png` },
-  { id: 2, title: 'Simple Starter Template', tag: 'Web',       image: `${base}img/crank.png` },
+  { id: 0, key: 'velo',     image: `${base}img/moon.png` },
+  { id: 1, key: 'flexy',    image: `${base}img/sunset.png` },
+  { id: 2, key: 'template', image: `${base}img/crank.png` },
 ]
 </script>
 

@@ -1,0 +1,126 @@
+{
+  "nav": {
+    "about": "About",
+    "projects": "Projects",
+    "skills": "Skills",
+    "contacts": "Contact"
+  },
+  "menu": {
+    "ariaLabel": "Page navigation"
+  },
+  "burger": {
+    "openMenu": "Open menu"
+  },
+  "home": {
+    "tagline": "Code the world:",
+    "title": "FrontEnd",
+    "sub": "I build modern web interfaces that work fast, look clean, and users love.",
+    "stackLabel": "Stack",
+    "introGreeting": "My name is",
+    "introName": "Vladimir",
+    "introText": "Frontend developer. I build responsive websites and SPAs with Vue.js — from first mockup to deploy. I care about details: typography, interface responsiveness, accessibility. Open to interesting projects.",
+    "featuredProjects": "Featured projects",
+    "allProjects": "All projects →",
+    "projects": {
+      "velo": { "tag": "Instagram", "title": "Dobry Lis Cycling Club" },
+      "flexy": { "tag": "Mobile UI", "title": "FLEX Mobile App" },
+      "template": { "tag": "Web", "title": "Simple Starter Template" }
+    }
+  },
+  "skills": {
+    "title": "My skills",
+    "intro": "I build responsive web interfaces that work equally well on desktop, tablet, and smartphone. I write clean, maintainable code and follow industry best practices.",
+    "techTitle": "Technologies",
+    "techHtmlcss": "semantic markup, Flexbox, Grid, animations, media queries, CSS variables.",
+    "techJs": "ES6+, DOM manipulation, async, Fetch API.",
+    "techVue": "components, Composition API, Vue Router, reactivity.",
+    "toolsTitle": "Tools",
+    "buildLabel": "Build:",
+    "vcsLabel": "Version control:",
+    "designLabel": "Design:",
+    "editorsLabel": "Editors:",
+    "designText": "Figma, working with mockups.",
+    "approachTitle": "My approach",
+    "approachText": "An analytical mindset helps me break down complex tasks and find optimal solutions. Every project is a chance to learn something new and step beyond the familiar."
+  },
+  "techDesc": {
+    "html": "Semantic markup",
+    "css": "Flexbox, Grid, animations",
+    "js": "ES6+, DOM, async",
+    "vue": "Composition API, Router"
+  },
+  "projects": {
+    "velo": {
+      "tag": "Instagram · Brand · UI",
+      "title": "Dobry Lis Cycling Club",
+      "metaScreens": "screens",
+      "metaSections": "sections",
+      "desc1": "Interactive Instagram page for the Dobry Lis cycling club. Visual content, unified post and stories style, navigation by sections.",
+      "desc2": "Working with the club's designers and content managers gave me an understanding of how visual identity shapes a community around a brand.",
+      "f1": "Bike rides through mystical places",
+      "f2": "Transfer with regional tours",
+      "f3": "Camping trips with overnight stays"
+    },
+    "flexy": {
+      "tag": "Mobile App · UI/UX",
+      "title": "FLEX Mobile App",
+      "metaScreens": "screens",
+      "metaUikit": "kit",
+      "desc1": "Mobile app for the Flexy Team. Interface design, responsive screen layouts, working with the UI-kit.",
+      "desc2": "The app brings together a team toolkit — from task management to communication. Focus on navigation, clean visuals, and responsive interface.",
+      "f1": "Clean UI with bright accents",
+      "f2": "Responsive screens for all devices",
+      "f3": "Unified design language across the app"
+    },
+    "template": {
+      "tag": "Web · HTML/CSS · Git",
+      "title": "Simple Starter Template",
+      "metaPages": "pages",
+      "metaProject": "project",
+      "metaProjectNum": "1st",
+      "desc1": "Starter template for web projects — the foundation for all future work. Semantic HTML, responsive CSS, fonts and icons setup.",
+      "desc2": "This project was the starting point: first experience with Git, understanding the workflow, and team collaboration skills."
+    },
+    "cheese": {
+      "tag": "In Progress · Brand · Web",
+      "title": "Cheese Factory",
+      "metaPhotos": "photos",
+      "metaStatus": "status",
+      "desc1": "Concept for a craft cheese factory website — a chance to convey the story and atmosphere of true craftsmanship through design.",
+      "desc2": "Product catalog with photos, recipes section, story of the production process — from ingredient selection to traditional aging methods.",
+      "f1": "Food photography as the foundation",
+      "f2": "Story and craft in every section",
+      "f3": "Catalog with cheese variety descriptions"
+    },
+    "scrollHint": "← scroll →"
+  },
+  "contacts": {
+    "tel": "Phone",
+    "vk": "VK",
+    "email": "Email",
+    "messengerBlock": {
+      "title": "Send a message",
+      "desc": "Type your message and pick a messenger"
+    },
+    "form": {
+      "title": "Send an email",
+      "sub": "Fill the form — I'll reply within a day",
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "message": "Message",
+      "send": "Send",
+      "sending": "Sending...",
+      "success": "Message sent!",
+      "errorSend": "Send failed. Try again later.",
+      "errorNet": "Network error. Check your connection.",
+      "subject": "New message from portfolio",
+      "messengerPlaceholder": "Your message...",
+      "validRequired": "Please fill out this field",
+      "validEmail": "Please enter a valid email address"
+    }
+  },
+  "lang": {
+    "switch": "RU"
+  }
+}

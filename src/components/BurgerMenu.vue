@@ -3,7 +3,7 @@
     class="burger"
     :class="{ active: isOpen }"
     role="button"
-    aria-label="Открыть меню"
+    :aria-label="t('burger.openMenu')"
     tabindex="0"
     @click="$emit('toggle')"
     @keydown.enter="$emit('toggle')"
@@ -15,6 +15,9 @@
 </template>
 
 <script setup>
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
+
 defineProps({
   isOpen: {
     type: Boolean,

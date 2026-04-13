@@ -3,44 +3,40 @@
     <div class="content-grid">
       <!-- Текстовый блок -->
       <div class="text-block glass-panel" style="--panel-delay: 0.1s">
-        <h1 class="page-title">Мои навыки</h1>
+        <h1 class="page-title">{{ t('skills.title') }}</h1>
         <span class="highligh-line"></span>
+        <p class="main-text">{{ t('skills.intro') }}</p>
+
+        <h2 class="sub-title">{{ t('skills.techTitle') }}</h2>
         <p class="main-text">
-          Создаю адаптивные веб-интерфейсы, которые одинаково хорошо работают на десктопе, планшете и смартфоне.
-          Пишу чистый, поддерживаемый код и стремлюсь к лучшим практикам индустрии.
+          <strong>HTML5, CSS3</strong> — {{ t('skills.techHtmlcss') }}
+          <strong>JavaScript</strong> — {{ t('skills.techJs') }}
+          <strong>Vue.js 3</strong> — {{ t('skills.techVue') }}
         </p>
 
-        <h2 class="sub-title">Технологии</h2>
+        <h2 class="sub-title">{{ t('skills.toolsTitle') }}</h2>
         <p class="main-text">
-          <strong>HTML5 и CSS3</strong> — семантическая вёрстка, Flexbox, Grid, анимации, медиа-запросы, CSS-переменные.
-          <strong>JavaScript</strong> — ES6+, работа с DOM, асинхронность, Fetch API.
-          <strong>Vue.js 3</strong> — компоненты, Composition API, Vue Router, реактивность.
+          <strong>{{ t('skills.buildLabel') }}</strong> Vite.
+          <strong>{{ t('skills.vcsLabel') }}</strong> Git, GitHub, GitHub Pages.
+          <strong>{{ t('skills.designLabel') }}</strong> {{ t('skills.designText') }}
+          <strong>{{ t('skills.editorsLabel') }}</strong> VS Code.
         </p>
 
-        <h2 class="sub-title">Инструменты</h2>
-        <p class="main-text">
-          <strong>Сборка:</strong> Vite.
-          <strong>Контроль версий:</strong> Git, GitHub, GitHub Pages.
-          <strong>Дизайн:</strong> Figma, работа с макетами.
-          <strong>Редакторы:</strong> VS Code.
-        </p>
-
-        <h2 class="sub-title">Подход к работе</h2>
-        <p class="main-text">
-          Аналитический склад ума помогает разбираться в сложных задачах и находить оптимальные решения.
-          Каждый проект — это возможность освоить что-то новое и выйти за рамки привычного.
-        </p>
+        <h2 class="sub-title">{{ t('skills.approachTitle') }}</h2>
+        <p class="main-text">{{ t('skills.approachText') }}</p>
       </div>
 
       <!-- Фото -->
       <div class="photo-block" style="--panel-delay: 0.25s">
-        <img class="photo" alt="Владимир" src="/img/I.jpg">
+        <img class="photo" :alt="t('home.introName')" src="/img/I.jpg">
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
 </script>
 
 <style scoped>

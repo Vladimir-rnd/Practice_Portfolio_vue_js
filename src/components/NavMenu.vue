@@ -1,5 +1,5 @@
 <template>
-  <nav class="menu" :class="{ active: menuOpen }" aria-label="Навигация по страницам">
+  <nav class="menu" :class="{ active: menuOpen }" :aria-label="t('menu.ariaLabel')">
     <div class="menu-logo">
       <img src="/img/Logo.svg" alt="Logo" class="menu-logo-img">
       <span class="menu-logo-text">CODE WEB</span>
@@ -12,26 +12,31 @@
       @click="closeMenu"
     >
       <span class="menu-marker"></span>
-      <span class="menu-text">{{ item.label }}</span>
+      <span class="menu-text">{{ t(item.key) }}</span>
     </router-link>
+    <LangSwitch class="menu-lang" />
     <div class="menu-copyright">©2023 @trionon</div>
   </nav>
+  <LangSwitch class="sidebar-lang" />
   <div class="copyright">©2023 @trionon</div>
 </template>
 
 <script setup>
 import { inject } from "vue"
 import { useRoute } from "vue-router"
+import { useI18n } from 'vue-i18n'
+import LangSwitch from '@/components/LangSwitch.vue'
 
+const { t } = useI18n()
 const menuOpen = inject("menuOpen")
 const toggleMenu = inject("toggleMenu")
 const route = useRoute()
 
 const menuItems = [
-  { to: '/', label: 'Обо мне' },
-  { to: '/projects', label: 'Проекты' },
-  { to: '/skills', label: 'Навыки' },
-  { to: '/contacts', label: 'Контакты' },
+  { to: '/', key: 'nav.about' },
+  { to: '/projects', key: 'nav.projects' },
+  { to: '/skills', key: 'nav.skills' },
+  { to: '/contacts', key: 'nav.contacts' },
 ]
 
 function closeMenu() {
@@ -106,8 +111,17 @@ function closeMenu() {
   font-size: calc(var(--menu-font-size) / 1.6);
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   opacity: 0.35;
-  margin-top: auto;
   padding-bottom: 3rem;
+}
+
+.sidebar-lang {
+  margin-top: auto;
+  margin-bottom: 2rem;
+  align-self: center;
+}
+
+.menu-lang {
+  display: none;
 }
 
 @media (max-width: 991px) {
@@ -188,6 +202,13 @@ function closeMenu() {
     opacity: 0.3;
     font-size: 1.4rem;
     font-family: var(--main-font);
+  }
+  .menu-lang {
+    display: inline-flex;
+    margin-top: 2rem;
+  }
+  .sidebar-lang {
+    display: none;
   }
 }
 </style>

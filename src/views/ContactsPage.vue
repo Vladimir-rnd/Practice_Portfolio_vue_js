@@ -23,26 +23,26 @@
 
         <!-- Email форма -->
         <div class="glass-panel form-panel" style="--panel-delay: 0.15s">
-          <h2 class="section-title">Написать на почту</h2>
-          <p class="section-sub">Заполните форму — отвечу в течение дня</p>
-          <form @submit.prevent="submitEmail" @focusin="status = ''">
+          <h2 class="section-title">{{ t('contacts.form.title') }}</h2>
+          <p class="section-sub">{{ t('contacts.form.sub') }}</p>
+          <form :lang="locale" @submit.prevent="submitEmail" @focusin="status = ''" @invalid.capture="onInvalid" @input.capture="onInput">
             <div class="field-row">
               <div class="field" style="flex: 1.2">
-                <label for="c-name">Имя</label>
-                <input id="c-name" v-model="form.name" name="name" type="text" autocomplete="name" required>
+                <label for="c-name">{{ t('contacts.form.name') }}</label>
+                <input id="c-name" :title="t('contacts.form.name')" v-model="form.name" name="name" type="text" autocomplete="name" required>
               </div>
               <div class="field" style="flex: 1.5">
-                <label for="c-email">Email</label>
-                <input id="c-email" v-model="form.email" name="email" type="email" autocomplete="email" required>
+                <label for="c-email">{{ t('contacts.form.email') }}</label>
+                <input id="c-email" :title="t('contacts.form.email')" v-model="form.email" name="email" type="email" autocomplete="email" required>
               </div>
               <div class="field" style="flex: 1">
-                <label for="c-phone">Телефон</label>
-                <input id="c-phone" v-model="form.phone" name="phone" type="tel" autocomplete="tel">
+                <label for="c-phone">{{ t('contacts.form.phone') }}</label>
+                <input id="c-phone" :title="t('contacts.form.phone')" v-model="form.phone" name="phone" type="tel" autocomplete="tel">
               </div>
             </div>
             <div class="field">
-              <label for="c-message">Сообщение</label>
-              <textarea id="c-message" v-model="form.message" name="message" rows="4" required></textarea>
+              <label for="c-message">{{ t('contacts.form.message') }}</label>
+              <textarea id="c-message" :title="t('contacts.form.message')" v-model="form.message" name="message" rows="4" required></textarea>
             </div>
             <div class="form-footer">
               <button class="send-btn" type="submit" :disabled="sending">
@@ -58,10 +58,10 @@
 
         <!-- Мессенджеры -->
         <div class="glass-panel messenger-panel hide-mobile" style="--panel-delay: 0.3s">
-          <h2 class="section-title">Написать в мессенджер</h2>
+          <h2 class="section-title">{{ t('contacts.messengerBlock.title') }}</h2>
           <div class="field">
-            <label for="c-messenger">Сообщение</label>
-            <textarea id="c-messenger" v-model="messengerText" rows="3" placeholder="Ваше сообщение..."></textarea>
+            <label for="c-messenger">{{ t('contacts.form.message') }}</label>
+            <textarea id="c-messenger" v-model="messengerText" rows="3" :placeholder="t('contacts.form.messengerPlaceholder')"></textarea>
           </div>
           <div class="messenger-grid">
             <button v-for="m in messengers" :key="m.type"
@@ -79,18 +79,20 @@
 </template>
 
 <script setup>
-import { reactive, ref } from 'vue'
+import { reactive, ref, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 
+const { t, locale } = useI18n()
 const base = import.meta.env.BASE_URL
 const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
 
-const contacts = [
-  { name: 'WhatsApp',   value: '+7-903-433-90-11', svg: `${base}img/wp.svg`,     href: 'https://wa.me/79034339011',    color: '#25d366', external: true },
-  { name: 'Telegram',   value: '@trionon_v',       svg: `${base}img/telega.svg`, href: 'https://t.me/trionon_v',       color: '#2aabee', external: true },
-  { name: 'ВКонтакте',  value: 'vk.com/id4226428', svg: `${base}img/vk.svg`,    href: 'https://vk.com/id4226428',     color: '#0077ff', external: true },
-  { name: 'MAX',        value: '+7-903-433-90-11', svg: `${base}img/max.svg`,    href: 'https://max.ru',  color: '#a06cf9', external: true },
-  { name: 'Email',      value: 'shagy@mail.ru',    svg: null,                     href: 'mailto:shagy@mail.ru',         color: '#decc95', external: false },
-]
+const contacts = computed(() => [
+  { name: 'WhatsApp',         value: '+7-903-433-90-11', svg: `${base}img/wp.svg`,     href: 'https://wa.me/79034339011',    color: '#25d366', external: true },
+  { name: 'Telegram',         value: '@trionon_v',       svg: `${base}img/telega.svg`, href: 'https://t.me/trionon_v',       color: '#2aabee', external: true },
+  { name: t('contacts.vk'),   value: 'vk.com/id4226428', svg: `${base}img/vk.svg`,    href: 'https://vk.com/id4226428',     color: '#0077ff', external: true },
+  { name: 'MAX',                value: '+7-903-433-90-11', svg: `${base}img/max.svg`,    href: 'https://max.ru',  color: '#a06cf9', external: true },
+  { name: t('contacts.email'),  value: 'shagy@mail.ru',    svg: null,                     href: 'mailto:shagy@mail.ru',         color: '#decc95', external: false },
+])
 
 const messengers = [
   { type: 'whatsapp', label: 'WhatsApp',   svg: `${base}img/wp.svg`,     color: '#25d366' },
@@ -101,12 +103,12 @@ const form = reactive({ name: '', email: '', phone: '', message: '' })
 const sending = ref(false)
 const status = ref('')
 const statusOk = ref(false)
-const buttonText = ref('Отправить')
 const messengerText = ref('')
+
+const buttonText = computed(() => sending.value ? t('contacts.form.sending') : t('contacts.form.send'))
 
 async function submitEmail() {
   sending.value = true
-  buttonText.value = 'Отправка...'
   status.value = ''
   statusOk.value = false
   try {
@@ -115,7 +117,7 @@ async function submitEmail() {
     data.append('email', form.email)
     data.append('phone', form.phone)
     data.append('message', form.message)
-    data.append('_subject', 'Новое сообщение с портфолио')
+    data.append('_subject', t('contacts.form.subject'))
     data.append('_captcha', 'false')
     const res = await fetch('https://formsubmit.co/ajax/shagy@mail.ru', {
       method: 'POST',
@@ -123,18 +125,33 @@ async function submitEmail() {
     })
     if (res.ok) {
       statusOk.value = true
-      status.value = 'Сообщение отправлено!'
+      status.value = t('contacts.form.success')
       form.name = ''; form.email = ''; form.phone = ''; form.message = ''
     } else {
       statusOk.value = false
-      status.value = 'Ошибка отправки. Попробуйте позже.'
+      status.value = t('contacts.form.errorSend')
     }
   } catch {
     statusOk.value = false
-    status.value = 'Ошибка сети. Проверьте подключение.'
+    status.value = t('contacts.form.errorNet')
   }
   sending.value = false
-  buttonText.value = 'Отправить'
+}
+
+function onInvalid(e) {
+  const el = e.target
+  if (!el.validity) return
+  if (el.validity.valueMissing) {
+    el.setCustomValidity(t('contacts.form.validRequired'))
+  } else if (el.validity.typeMismatch) {
+    el.setCustomValidity(t('contacts.form.validEmail'))
+  } else {
+    el.setCustomValidity('')
+  }
+}
+
+function onInput(e) {
+  if (e.target.setCustomValidity) e.target.setCustomValidity('')
 }
 
 function openMessenger(type) {
