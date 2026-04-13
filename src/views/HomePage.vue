@@ -1,171 +1,315 @@
 <template>
   <div class="main-window">
-    <div class="frontend">
-      <div class="simple-starter-templ">
-        <p class="simple-starter">Закодируй мир: </p>
-        <p class="template">FrontEnd</p>
+    <!-- Hero -->
+    <section class="hero glass-panel" style="--panel-delay: 0.1s">
+      <div class="hero-text">
+        <p class="hero-tagline">Закодируй мир:</p>
+        <h1 class="hero-title">FrontEnd</h1>
+        <p class="hero-sub">
+          Создаю современные веб-интерфейсы, которые работают быстро, выглядят чисто и нравятся пользователям.
+        </p>
       </div>
-      <SkillsIcons />
-    </div>
-    <div class="a-clean-simple">
-      Открой двери в бесконечные возможности с миром кода: фронтенд разработчик — творческий волшебник, объединяющий
-      бесконечную креативность и невероятную техническую магию!
-    </div>
-    <div class="a-clean-simple">
-      Мои лучшие проекты:
-    </div>
-    <div class="thumbs-1p">
-      <div class="th-project">
-        <span class="th-project-expl">Велоклуб Добрый Лис: проект в instagram</span>
-        <img class="thumbs-icon-1p" alt="" src="/img/moon.png">
+      <div class="hero-stack">
+        <span class="stack-label">Технологии</span>
+        <SkillsIcons class="hero-icons" />
       </div>
-      <div class="th-project">
-        <span class="th-project-expl">FLEX MOBILE APP: команда мечты</span>
-        <img class="thumbs-icon-1p" alt="" src="/img/sunset.png">
+    </section>
+
+    <!-- Представление -->
+    <section class="intro glass-panel" style="--panel-delay: 0.25s">
+      <div class="intro-greeting">Меня зовут <span class="accent">Владимир</span></div>
+      <p class="intro-text">
+        Frontend-разработчик. Делаю адаптивные сайты и одностраничные приложения на Vue.js — от первого макета
+        до публикации. Уделяю внимание деталям: типографике, отзывчивости интерфейса, доступности.
+        Открыт к интересным проектам.
+      </p>
+    </section>
+
+    <!-- Лучшие проекты -->
+    <section class="projects-section" style="--panel-delay: 0.4s">
+      <div class="section-header">
+        <h2 class="section-title">Избранные проекты</h2>
+        <router-link to="/projects" class="section-link">Все проекты →</router-link>
       </div>
-      <div class="th-project">
-        <span class="th-project-expl">simple-starter-template: фиолетовый проект</span>
-        <img class="thumbs-icon-1p" alt="" src="/img/crank.png">
+      <div class="projects-grid">
+        <router-link :to="`/projects?p=${p.id}`" class="project-card glass-panel"
+                     v-for="(p, i) in projects" :key="p.title"
+                     :style="{ '--card-delay': (0.5 + i * 0.1) + 's' }">
+          <div class="project-thumb">
+            <img :src="p.image" :alt="p.title">
+          </div>
+          <div class="project-info">
+            <div class="project-tag">{{ p.tag }}</div>
+            <div class="project-title">{{ p.title }}</div>
+          </div>
+        </router-link>
       </div>
-    </div>
-    <div class="about-me">
-      <span>Меня зовут Владимир.</span><br>
-      <span>
-        Стремительные сайты, захватывающий пользовательский опыт и инновационный дизайн - все это
-        я, разработчик фронтенда и фрилансер! Я создаю уникальные онлайн-решения, подстраиваясь под
-        ваши потребности и воплощая ваши цели в увлекательные веб-приложения. Доверьте свой проект профессионалу,
-        и вместе мы превратим ваши идеи в реальность, оставляя на виртуальном пространстве след радости и инноваций!
-      </span>
-    </div>
+    </section>
   </div>
 </template>
 
 <script setup>
 import SkillsIcons from '@/components/SkillsIcons.vue'
+
+const base = import.meta.env.BASE_URL
+
+const projects = [
+  { id: 0, title: 'Велоклуб «Добрый Лис»',  tag: 'Instagram', image: `${base}img/moon.png` },
+  { id: 1, title: 'FLEX Mobile App',         tag: 'Mobile UI', image: `${base}img/sunset.png` },
+  { id: 2, title: 'Simple Starter Template', tag: 'Web',       image: `${base}img/crank.png` },
+]
 </script>
 
 <style scoped>
 .main-window {
   position: relative;
-  margin-top: var(--main-window-top);
+  margin-top: 7rem;
   margin-left: calc(var(--sidebar-width) + var(--main-window-left));
-  width: var(--main-window-width);
-  height: auto;
-  display: inline-flex;
+  width: calc(100vw - var(--sidebar-width) - 2 * var(--main-window-left));
+  display: flex;
   flex-direction: column;
-  align-items: start;
+  gap: 2.5rem;
   padding-bottom: 5rem;
 }
 
-.frontend {
-  width: 100%;
-  display: inline-flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-}
-
-.simple-starter-templ {
-  width: 64%;
-  font-weight: 700;
-}
-
-.simple-starter {
-  margin: 0;
-  font-size: var(--big-font-size);
-}
-
-.template {
-  margin: 0;
-  color: var(--highligh-color);
-  font-size: var(--template-font-size);
-  line-height: 60%;
-}
-
-.template:hover {
-  color: var(--alt-color-1);
-}
-
-.a-clean-simple {
-  margin-top: 4.4rem;
-  width: 90%;
-  font-family: var(--body-font);
-  font-size: var(--body-font-size);
-  line-height: 145%;
-  letter-spacing: 0.03rem;
-}
-
-.thumbs-1p {
-  margin-top: 2rem;
-  width: var(--main-window-width);
-  display: inline-flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-.thumbs-icon-1p {
-  border-radius: var(--thumbs-radius);
-  border: 2px solid rgba(255, 255, 255, 0.15);
-  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
-}
-
-.thumbs-icon-1p:hover {
-  border-color: var(--alt-color-1);
-  box-shadow: 0 0 20px rgba(222, 204, 149, 0.2);
-  transform: translateY(-2px);
-}
-
-.th-project {
-  font-family: var(--alt-font);
-  font-size: var(--basement-font-size);
-  width: 40rem;
-  height: 30rem;
-  margin-right: 4rem;
-  display: flex;
-  flex-direction: column;
-}
-
-.th-project-expl {
-  width: 33rem;
-  height: 4rem;
-}
-
-.about-me {
-  margin-top: 4rem;
-  width: 83%;
-  font-family: var(--body-font);
-  font-size: var(--basement-font-size);
-  letter-spacing: 0.2em;
+/* === Glass Panel === */
+.glass-panel {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 1.6rem;
-  padding: 3rem;
   backdrop-filter: blur(12px);
+  animation: fadeScaleIn 0.7s ease both;
+  animation-delay: var(--panel-delay);
 }
 
+/* === Hero === */
+.hero {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4rem;
+  padding: 4rem;
+}
+
+.hero-text {
+  flex: 1.3;
+  min-width: 0;
+}
+
+.hero-tagline {
+  margin: 0;
+  font-family: var(--main-font);
+  font-size: var(--big-font-size);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.02em;
+}
+
+.hero-title {
+  margin: 0.5rem 0 0;
+  font-family: var(--main-font);
+  font-size: var(--template-font-size);
+  font-weight: 700;
+  line-height: 90%;
+  background: linear-gradient(135deg, var(--highligh-color), #c084ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.02em;
+}
+
+.hero-sub {
+  margin: 2rem 0 0;
+  font-family: var(--body-font);
+  font-size: var(--expl-font-size);
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 150%;
+}
+
+.hero-stack {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  padding-left: 4rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.stack-label {
+  font-family: var(--main-font);
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.hero-icons {
+  width: 100%;
+}
+
+/* === Intro === */
+.intro {
+  padding: 3rem 4rem;
+}
+
+.intro-greeting {
+  font-family: var(--main-font);
+  font-size: 2.4rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
+.accent {
+  color: var(--alt-color-1);
+}
+
+.intro-text {
+  margin: 0;
+  font-family: var(--body-font);
+  font-size: var(--page-font-size);
+  line-height: 165%;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* === Projects Section === */
+.projects-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  animation: fadeScaleIn 0.7s ease both;
+  animation-delay: var(--panel-delay);
+}
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.section-title {
+  margin: 0;
+  font-family: var(--main-font);
+  font-size: 2.6rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--main-color);
+}
+
+.section-link {
+  font-family: var(--body-font);
+  font-size: 1.4rem;
+  color: var(--highligh-color);
+  transition: color 0.3s, transform 0.3s;
+  display: inline-block;
+}
+
+.section-link:hover {
+  color: var(--alt-color-1);
+  transform: translateX(4px);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 0;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+  animation: fadeScaleIn 0.6s ease both;
+  animation-delay: var(--card-delay);
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--alt-color-1);
+  box-shadow: 0 8px 30px rgba(222, 204, 149, 0.15);
+}
+
+.project-thumb {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.project-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-thumb img {
+  transform: scale(1.05);
+}
+
+.project-info {
+  padding: 1.5rem;
+}
+
+.project-tag {
+  font-family: var(--main-font);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--highligh-color);
+  margin-bottom: 0.5rem;
+}
+
+.project-title {
+  font-family: var(--main-font);
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--main-color);
+}
+
+/* === Animations === */
+@keyframes fadeScaleIn {
+  from { opacity: 0; transform: scale(0.97) translateY(8px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glass-panel,
+  .project-card,
+  .projects-section {
+    animation: none;
+  }
+  .project-card,
+  .project-thumb img,
+  .section-link {
+    transition: none;
+  }
+}
+
+/* === Responsive === */
 @media (max-width: 1199px) {
-  .thumbs-1p {
-    width: 98%;
+  .hero {
+    padding: 3rem;
+  }
+  .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media (max-width: 991px) {
-  .thumbs-1p {
-    justify-content: center;
+  .hero {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 3rem;
   }
-  .th-project {
-    width: 35rem;
-  }
-  .simple-starter {
-    line-height: 100%;
-  }
-  .template {
-    padding-top: 1rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .simple-starter-templ {
-    width: 90%;
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -175,35 +319,23 @@ import SkillsIcons from '@/components/SkillsIcons.vue'
     margin: 0;
     width: 100%;
   }
-  .thumbs-1p {
-    margin-top: 3rem;
-    margin-left: 2rem;
+  .hero {
+    padding: 2rem;
+    gap: 2rem;
   }
-  .th-project {
-    height: auto;
-    margin-bottom: 2rem;
+  .hero-tagline {
+    font-size: 3rem;
   }
-  .th-project-expl {
-    height: auto;
+  .intro {
+    padding: 2rem;
   }
-  .thumbs-icon-1p {
-    width: 30rem;
-    margin-top: 1rem;
-    margin-bottom: 2rem;
+  .projects-grid {
+    grid-template-columns: 1fr;
   }
-  .frontend {
-    display: flex;
+  .section-header {
     flex-direction: column;
-  }
-  .a-clean-simple {
-    width: calc(var(--screen-width) - 3rem);
-    margin-top: 2rem;
-  }
-  .simple-starter-templ {
-    width: 15rem;
-  }
-  .about-me {
-    width: calc(var(--screen-width) - 5rem);
+    align-items: flex-start;
+    gap: 0.5rem;
   }
 }
 </style>

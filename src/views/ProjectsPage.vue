@@ -109,11 +109,17 @@
 </template>
 
 <script setup>
-import { ref, computed, useTemplateRef, onMounted, onUnmounted } from 'vue'
+import { ref, computed, useTemplateRef, onMounted, onUnmounted, watch } from 'vue'
+import { useRoute } from 'vue-router'
 import ProjectCard from '@/components/ProjectCard.vue'
 
-const activeProject = ref(0)
+const route = useRoute()
+const activeProject = ref(parseInt(route.query.p) || 0)
 const windowWidth = ref(window.innerWidth)
+
+watch(() => route.query.p, (newP) => {
+  activeProject.value = parseInt(newP) || 0
+})
 
 const scrollContainer1 = ref(null)
 const scrollContainer2 = ref(null)

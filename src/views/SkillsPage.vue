@@ -48,7 +48,7 @@
   position: relative;
   margin-top: var(--main-window-top);
   margin-left: calc(var(--sidebar-width) + var(--main-window-left));
-  width: var(--main-window-width);
+  width: calc(100vw - var(--sidebar-width) - 2 * var(--main-window-left));
   min-height: 80vh;
   padding-bottom: 5rem;
 }
@@ -119,9 +119,9 @@
 /* === Photo === */
 .photo-block {
   position: fixed;
-  right: 4rem;
+  right: var(--main-window-left);
   top: var(--main-window-top);
-  width: calc((100vw - var(--sidebar-width) - var(--main-window-left) - 8rem) * 0.4);
+  width: calc((100vw - var(--sidebar-width) - 2 * var(--main-window-left)) * 0.4);
   animation: fadeScaleIn 0.7s ease both;
   animation-delay: var(--panel-delay);
 }
